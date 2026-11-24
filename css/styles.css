@@ -393,6 +393,14 @@ em{font-style:normal}
   .next__timer b{font-size:2.6rem}
   .stats{grid-template-columns:1fr 1fr}
 }
+/* ---------- no-gsap fallback (see js/gsap-fallback.js) ---------- */
+.no-gsap .hero__meta,.no-gsap [data-hero-fade]{opacity:1}
+.no-gsap .cursor{display:none!important}
+.no-gsap body{cursor:auto!important}
+.no-gsap a,.no-gsap button,.no-gsap label{cursor:pointer!important}
+.no-gsap .marquee__track{animation:marquee 22s linear infinite}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
 @media (prefers-reduced-motion:reduce){
-  .grain,.marquee__track,.hero::before{animation:none}
+  .grain,.marquee__track,.hero::before,.no-gsap .marquee__track{animation:none}
 }
