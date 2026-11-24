@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roster — Diamond Elite Youth Flag Football</title>
+<meta name="description" content="Meet the Diamond Elite roster. Browse players by division, from 6U through High School Girls.">
+<meta name="theme-color" content="#07080d">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <img class="loader__gem" src="assets/favicon.svg" alt="">
+    <div class="loader__count"><span id="loaderNum">0</span><i>%</i></div>
+    <p>Lacing up the cleats</p>
+  </div>
+</div>
+
+<div class="cursor" id="cursor"><span></span></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Nav -->
+<header class="nav" id="nav">
+  <a href="index.html" class="logo" aria-label="Diamond Elite — home" data-cursor>
+    <img src="assets/DianmondElite_Logo.svg" alt="Diamond Elite">
+  </a>
+  <nav class="nav__links" id="navLinks">
+    <a href="index.html#about" data-cursor>The Club</a>
+    <a href="index.html#programs" data-cursor>Programs</a>
+    <a href="index.html#schedule" data-cursor>Schedule</a>
+    <a href="roster.html" class="is-current" aria-current="page" data-cursor>Roster</a>
+    <a href="registration.html" class="nav__cta" data-cursor>Register <span>→</span></a>
+  </nav>
+  <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+</header>
+
+<main id="top">
+
+<!-- PAGE HERO -->
+<section class="hero hero--page">
+  <div class="hero__meta">
+    <span class="pill"><i class="dot"></i> Spring 2027 roster</span>
+    <span class="hero__est">6U – High School Girls</span>
+  </div>
+
+  <h1 class="hero__title" aria-label="The Roster">
+    <span class="line line--back"><span class="chars" data-chars>The</span></span>
+    <span class="line line--front"><span class="chars" data-chars>Roster</span></span>
+  </h1>
+
+  <div class="hero__foot">
+    <p class="hero__lede" data-hero-fade>Every athlete, every number. <em>Pick a division to see who's suiting up this season.</em></p>
+    <div class="hero__cta" data-hero-fade>
+      <a href="registration.html" class="btn btn--lime" data-magnetic data-cursor="Join">Join the squad <span>→</span></a>
+      <a href="index.html#schedule" class="btn btn--ghost" data-magnetic data-cursor>View schedule</a>
+    </div>
+  </div>
+</section>
+
+<!-- ROSTER -->
+<section class="rosterpage section">
+  <div class="wrap">
+    <div class="rfilters" role="group" aria-label="Filter by division">
+      <button class="chip is-on" data-filter="all" aria-pressed="true" data-cursor>All</button>
+      <button class="chip" data-filter="6u" aria-pressed="false" data-cursor>6U</button>
+      <button class="chip" data-filter="8u" aria-pressed="false" data-cursor>8U</button>
+      <button class="chip" data-filter="10u" aria-pressed="false" data-cursor>10U</button>
+      <button class="chip" data-filter="12u" aria-pressed="false" data-cursor>12U</button>
+      <button class="chip" data-filter="14u" aria-pressed="false" data-cursor>14U</button>
+      <button class="chip" data-filter="hs" aria-pressed="false" data-cursor>High School Girls</button>
+    </div>
+    <p class="rcount" id="rcount" aria-live="polite"></p>
+
+    <div class="rgrid" id="rgrid">
+      <!-- LOOP: one <article class="card"> per player.
+           data-div = 6u | 8u | 10u | 12u | 14u | hs   (drives the division filter)
+           data-accent = lime | violet | fire          (cycle, or map from position) -->
+      <article class="card" data-div="6u" data-accent="lime">
+        <div class="card__top"><span class="card__pos">WR</span><span>6U · Age 6</span></div>
+        <div class="card__num">04</div>
+        <div class="card__bot">
+          <h3>Owen D.</h3><p>Wide Receiver</p>
+          <div class="card__stats"><div><b>8</b><span>Rec</span></div><div><b>96</b><span>Yds</span></div><div><b>5.2</b><span>YAC</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-div="6u" data-accent="violet">
+        <div class="card__top"><span class="card__pos">DB</span><span>6U · Age 6</span></div>
+        <div class="card__num">10</div>
+        <div class="card__bot">
+          <h3>Piper L.</h3><p>Defensive Back</p>
+          <div class="card__stats"><div><b>18</b><span>Pulls</span></div><div><b>2</b><span>INT</span></div><div><b>1</b><span>PBU</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-div="8u" data-accent="fire">
+        <div class="card__top"><span class="card__pos">RB</span><span>8U · Age 8</span></div>
+        <div class="card__num">28</div>
+        <div class="card__bot">
+          <h3>Noah F.</h3><p>Running Back</p>
+          <div class="card__stats"><div><b>9</b><span>TD</span></div><div><b>260</b><span>Yds</span></div><div><b>5.4</b><span>Avg</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-div="8u" data-accent="violet">
+        <div class="card__top"><span class="card__pos">DB</span><span>8U · Age 7</span></div>
+        <div class="card__num">33</div>
+        <div class="card__bot">
+          <h3>Caleb H.</h3><p>Defensive Back</p>
+          <div class="card__stats"><div><b>27</b><span>Pulls</span></div><div><b>3</b><span>INT</span></div><div><b>1</b><span>PBU</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-div="8u" data-accent="fire">
+        <div class="card__top"><span class="card__pos">WR</span><span>8U · Age 7</span></div>
+        <div class="card__num">02</div>
+        <div class="card__bot">
+          <h3>Ruby P.</h3><p>Wide Receiver</p>
+          <div class="card__stats"><div><b>11</b><span>Rec</span></div><div><b>176</b><span>Yds</span></div><div><b>6.6</b><span>YAC</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-div="10u" data-accent="violet">
+        <div class="card__top"><span class="card__pos">WR</span><span>10U · Age 10</span></div>
+        <div class="card__num">11</div>
+        <div class="card__bot">
+          <h3>Eli K.</h3><p>Wide Receiver</p>
+          <div class="card__stats"><div><b>19</b><span>Rec</span></div><div><b>388</b><span>Yds</span></div><div><b>7.4</b><span>YAC</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-div="10u" data-accent="violet">
+        <div class="card__top"><span class="card__pos">QB</span><span>10U · Age 10</span></div>
+        <div class="card__num">09</div>
+        <div class="card__bot">
+          <h3>Lila C.</h3><p>Quarterback</p>
+          <div class="card__stats"><div><b>22</b><span>TD</span></div><div><b>154</b><span>Yds</span></div><div><b>61%</b><span>Cmp</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-div="10u" data-accent="lime">
+        <div class="card__top"><span class="card__pos">DB</span><span>10U · Age 9</span></div>
+        <div class="card__num">14</div>
+        <div class="card__bot">
+          <h3>Theo B.</h3><p>Defensive Back</p>
+          <div class="card__stats"><div><b>38</b><span>Pulls</span></div><div><b>5</b><span>INT</span></div><div><b>2</b><span>PBU</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-div="10u" data-accent="lime">
+        <div class="card__top"><span class="card__pos">WR</span><span>10U · Age 9</span></div>
+        <div class="card__num">17</div>
+        <div class="card__bot">
+          <h3>Zuri A.</h3><p>Wide Receiver</p>
+          <div class="card__stats"><div><b>14</b><span>Rec</span></div><div><b>301</b><span>Yds</span></div><div><b>8.2</b><span>YAC</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-div="12u" data-accent="violet">
+        <div class="card__top"><span class="card__pos">WR</span><span>12U · Age 12</span></div>
+        <div class="card__num">01</div>
+        <div class="card__bot">
+          <h3>Maya T.</h3><p>Wide Receiver</p>
+          <div class="card__stats"><div><b>23</b><span>Rec</span></div><div><b>640</b><span>Yds</span></div><div><b>9.8</b><span>YAC</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-div="12u" data-accent="fire">
+        <div class="card__top"><span class="card__pos">RB</span><span>12U · Age 11</span></div>
+        <div class="card__num">22</div>
+        <div class="card__bot">
+          <h3>Dre W.</h3><p>Running Back</p>
+          <div class="card__stats"><div><b>17</b><span>TD</span></div><div><b>480</b><span>Yds</span></div><div><b>6.1</b><span>Avg</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-div="12u" data-accent="lime">
+        <div class="card__top"><span class="card__pos">DB</span><span>12U · Age 12</span></div>
+        <div class="card__num">03</div>
+        <div class="card__bot">
+          <h3>Sofia M.</h3><p>Defensive Back</p>
+          <div class="card__stats"><div><b>52</b><span>Pulls</span></div><div><b>9</b><span>INT</span></div><div><b>4</b><span>PBU</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-div="14u" data-accent="lime">
+        <div class="card__top"><span class="card__pos">QB</span><span>14U · Age 13</span></div>
+        <div class="card__num">07</div>
+        <div class="card__bot">
+          <h3>Jaylen R.</h3><p>Quarterback</p>
+          <div class="card__stats"><div><b>41</b><span>TD</span></div><div><b>212</b><span>Yds</span></div><div><b>68%</b><span>Cmp</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-div="14u" data-accent="fire">
+        <div class="card__top"><span class="card__pos">C</span><span>14U · Age 13</span></div>
+        <div class="card__num">05</div>
+        <div class="card__bot">
+          <h3>Amara O.</h3><p>Center</p>
+          <div class="card__stats"><div><b>0</b><span>Snap Err</span></div><div><b>96%</b><span>Acc</span></div><div><b>31</b><span>Blk</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-div="hs" data-accent="violet">
+        <div class="card__top"><span class="card__pos">WR</span><span>HS · Age 15</span></div>
+        <div class="card__num">08</div>
+        <div class="card__bot">
+          <h3>Alexis V.</h3><p>Wide Receiver</p>
+          <div class="card__stats"><div><b>31</b><span>Rec</span></div><div><b>812</b><span>Yds</span></div><div><b>10.4</b><span>YAC</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-div="hs" data-accent="lime">
+        <div class="card__top"><span class="card__pos">QB</span><span>HS · Age 16</span></div>
+        <div class="card__num">12</div>
+        <div class="card__bot">
+          <h3>Kendra J.</h3><p>Quarterback</p>
+          <div class="card__stats"><div><b>44</b><span>TD</span></div><div><b>268</b><span>Yds</span></div><div><b>71%</b><span>Cmp</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-div="hs" data-accent="fire">
+        <div class="card__top"><span class="card__pos">DB</span><span>HS · Age 17</span></div>
+        <div class="card__num">21</div>
+        <div class="card__bot">
+          <h3>Brielle S.</h3><p>Defensive Back</p>
+          <div class="card__stats"><div><b>61</b><span>Pulls</span></div><div><b>11</b><span>INT</span></div><div><b>6</b><span>PBU</span></div></div>
+        </div>
+      </article>
+      <!-- /LOOP -->
+      <article class="card card--cta">
+        <h3>Your kid<br>here next.</h3>
+        <a href="registration.html" class="btn" data-cursor>Register now <span>→</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__big" data-footer-big>
+      <span>See you on</span>
+      <span class="o">the field.</span>
+    </div>
+    <div class="footer__grid">
+      <div>
+        <img class="footer__icon" src="assets/DianmondElite_Icon.svg" alt="Diamond Elite">
+        <h4>Home field</h4>
+        <p>Riverside Sports Complex<br>1200 Marigold Way, Fields 3 &amp; 4</p>
+      </div>
+      <div>
+        <h4>Say hello</h4>
+        <p><a href="#" data-cursor>hello@diamondelite.example</a><br><a href="#" data-cursor>(555) 014-2027</a></p>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <p><a href="#" data-cursor>Instagram</a> · <a href="#" data-cursor>TikTok</a> · <a href="#" data-cursor>YouTube</a></p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <p><a href="index.html#about" data-cursor>Club</a> · <a href="index.html#programs" data-cursor>Programs</a> · <a href="index.html#schedule" data-cursor>Schedule</a> · <a href="roster.html" data-cursor>Roster</a> · <a href="registration.html" data-cursor>Register</a></p>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <span>© 2027 Diamond Elite Youth Flag Football. A fictional club.</span>
+      <a href="#top" data-cursor>Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

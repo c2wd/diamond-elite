@@ -8,8 +8,8 @@
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
   if (RM) gsap.globalTimeline.timeScale(60);
 
-  const DIV = { cadets: 'Cadets', juniors: 'Juniors', elite: 'Elite' };
-  const gamesEl = $('#games'), track = $('#rosterTrack');
+  const DIV = { '6u': '6U', '8u': '8U', '10u': '10U', '12u': '12U', '14u': '14U', hs: 'HS Girls' };
+  const gamesEl = $('#games');
 
   /* ---------------- CURSOR ---------------- */
   if (fine) {
@@ -109,23 +109,28 @@
       gsap.to(o, { v: end, duration: 2, ease: 'power2.out', onUpdate: () => el.textContent = Math.round(o.v) + suf }) });
   });
   // game rows stagger in
-  const revealGames = () => gsap.fromTo($$('.game:not([hidden])'), { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: .8, ease: 'power3.out', stagger: .06 });
-  ScrollTrigger.create({ trigger: gamesEl, start: 'top 85%', once: true, onEnter: revealGames });
-  gsap.set($$('.game'), { opacity: 0 });
+  const revealGames = () => { const g = $$('.game:not([hidden])'); if (g.length) gsap.fromTo(g, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: .8, ease: 'power3.out', stagger: .06 }); };
+  if (gamesEl) {
+    ScrollTrigger.create({ trigger: gamesEl, start: 'top 85%', once: true, onEnter: revealGames });
+    gsap.set($$('.game'), { opacity: 0 });
+  }
 
   // footer giant type
   gsap.from('[data-footer-big] span', { yPercent: 40, opacity: 0, duration: 1.2, ease: 'expo.out', stagger: .12, scrollTrigger: { trigger: '.footer', start: 'top 75%', once: true } });
 
   /* ---------------- MARQUEE ---------------- */
   const mq = $('#marqueeTrack');
-  const mqTween = gsap.to(mq, { xPercent: -50, ease: 'none', duration: 22, repeat: -1 });
-  ScrollTrigger.create({ onUpdate: s => {
-    const v = Math.min(Math.abs(s.getVelocity()) / 400, 6);
-    gsap.to(mqTween, { timeScale: (s.direction === 1 ? 1 : -1) * (1 + v), duration: .3, overwrite: true });
-    gsap.to(mqTween, { timeScale: s.direction, duration: 1.2, delay: .3, overwrite: 'auto' });
-  } });
+  if (mq) {
+    const mqTween = gsap.to(mq, { xPercent: -50, ease: 'none', duration: 22, repeat: -1 });
+    ScrollTrigger.create({ onUpdate: s => {
+      const v = Math.min(Math.abs(s.getVelocity()) / 400, 6);
+      gsap.to(mqTween, { timeScale: (s.direction === 1 ? 1 : -1) * (1 + v), duration: .3, overwrite: true });
+      gsap.to(mqTween, { timeScale: s.direction, duration: 1.2, delay: .3, overwrite: 'auto' });
+    } });
+  }
 
   /* ---------------- SCHEDULE: COUNTDOWN + FILTER ---------------- */
+  if (gamesEl) {
   const gameEls = $$('.game[data-start]');
   const nextEl = gameEls.find(g => new Date(g.dataset.start) > new Date()) || gameEls[0];
   const target = nextEl ? new Date(nextEl.dataset.start) : new Date();
@@ -144,33 +149,54 @@
   }
   count(); setInterval(count, 1000);
 
-  $$('.chip').forEach(chip => chip.addEventListener('click', () => {
-    $$('.chip').forEach(c => c.classList.toggle('is-on', c === chip));
+  const gameChips = $$('#gameFilters .chip');
+  gameChips.forEach(chip => chip.addEventListener('click', () => {
+    gameChips.forEach(c => c.classList.toggle('is-on', c === chip));
     const f = chip.dataset.filter;
     $$('.game').forEach(g => { g.hidden = !(f === 'all' || g.dataset.loc === f); g.style.display = g.hidden ? 'none' : ''; });
     revealGames();
     ScrollTrigger.refresh();
   }));
+  }
 
-  /* ---------------- ROSTER: PINNED HORIZONTAL SCROLL ---------------- */
-  const mm = gsap.matchMedia();
-  mm.add('(min-width: 901px)', () => {
-    const dist = () => track.scrollWidth - innerWidth + 40;
-    gsap.to(track, {
-      x: () => -dist(), ease: 'none',
-      scrollTrigger: { trigger: '.roster', start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 1, invalidateOnRefresh: true,
-        onUpdate: s => gsap.set('#rosterBar', { scaleX: s.progress }) }
-    });
-    gsap.fromTo($$('.card'), { y: 80, opacity: 0, rotate: 3 }, { y: 0, opacity: 1, rotate: 0, duration: 1, ease: 'power3.out', stagger: .08, scrollTrigger: { trigger: '.roster', start: 'top 60%', once: true } });
-  });
-  mm.add('(max-width: 900px)', () => {
-    gsap.fromTo($$('.card'), { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: .8, stagger: .08, scrollTrigger: { trigger: '.roster__viewport', start: 'top 85%', once: true } });
-  });
+  /* ---------------- ROSTER PAGE: DIVISION FILTER ---------------- */
+  const rgrid = $('#rgrid');
+  if (rgrid) {
+    const cards = $$('.card[data-div]', rgrid), chips = $$('.rfilters .chip'), countEl = $('#rcount');
+    const valid = f => chips.some(c => c.dataset.filter === f);
+    const fromHash = () => { const h = location.hash.slice(1).toLowerCase(); return valid(h) ? h : 'all'; };
+    const show = f => {
+      let n = 0;
+      cards.forEach(c => { const on = f === 'all' || c.dataset.div === f; c.hidden = !on; c.style.display = on ? '' : 'none'; if (on) n++; });
+      chips.forEach(c => { const on = c.dataset.filter === f; c.classList.toggle('is-on', on); c.setAttribute('aria-pressed', on); });
+      const label = f === 'all' ? 'all divisions' : $(`.rfilters .chip[data-filter="${f}"]`).textContent;
+      if (countEl) countEl.textContent = `Showing ${n} ${n === 1 ? 'player' : 'players'} · ${label}`;
+    };
+    const animate = () => gsap.fromTo($$('.card:not([hidden])', rgrid), { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: .7, ease: 'power3.out', stagger: .05, overwrite: true });
+    show(fromHash());
+    gsap.set($$('.card', rgrid), { opacity: 0 });
+    ScrollTrigger.create({ trigger: rgrid, start: 'top 90%', once: true, onEnter: animate });
+    chips.forEach(chip => chip.addEventListener('click', () => {
+      const f = chip.dataset.filter;
+      show(f);
+      history.replaceState(null, '', f === 'all' ? location.pathname + location.search : '#' + f);
+      animate();
+      ScrollTrigger.refresh();
+    }));
+    addEventListener('hashchange', () => { show(fromHash()); animate(); });
+  }
 
   /* ---------------- REGISTRATION ---------------- */
   const form = $('#regForm');
+  if (form) {
   const sumDiv = $('#sumDiv'), sumPlayer = $('#sumPlayer'), sumTotal = $('#sumTotal');
-  const total = { v: 165 };
+  // preselect from #hash (e.g. registration.html#10u), then sync the summary
+  const hashDiv = $(`input[name=division][value="${location.hash.slice(1).toLowerCase()}"]`, form);
+  if (hashDiv) hashDiv.checked = true;
+  const first = $('input[name=division]:checked', form);
+  const total = { v: +first.dataset.price - 20 };
+  sumDiv.textContent = DIV[first.value];
+  sumTotal.textContent = '$' + total.v;
   function updateSummary() {
     const sel = $('input[name=division]:checked', form);
     const price = +sel.dataset.price - 20;
@@ -182,8 +208,8 @@
     if (e.target.name === 'division') updateSummary();
     // suggest a division from age
     if (e.target.name === 'age') {
-      const a = +e.target.value, d = a <= 8 ? 'cadets' : a <= 11 ? 'juniors' : 'elite';
-      if (a >= 6 && a <= 14) { const r = $(`input[value=${d}]`, form); if (!r.checked) { r.checked = true; updateSummary(); } }
+      const a = +e.target.value, d = a <= 6 ? '6u' : a <= 8 ? '8u' : a <= 10 ? '10u' : a <= 12 ? '12u' : a <= 14 ? '14u' : 'hs';
+      if (a >= 4 && a <= 18) { const r = $(`input[name=division][value="${d}"]`, form); if (!r.checked) { r.checked = true; updateSummary(); } }
     }
   });
   $('#pName').addEventListener('input', e => sumPlayer.textContent = e.target.value.trim() || '—');
@@ -224,6 +250,7 @@
       gsap.to(b, { x: innerWidth / 2 + (Math.random() - .5) * innerWidth * .9, y: innerHeight / 2 - 100 - Math.random() * innerHeight * .45, rotate: '+=' + (Math.random() * 720 - 360), duration: .9, ease: 'power3.out' });
       gsap.to(b, { y: innerHeight + 40, opacity: 0, duration: 1.6, delay: .8, ease: 'power2.in', onComplete: () => b.remove() });
     }
+  }
   }
 
   addEventListener('load', () => ScrollTrigger.refresh());
