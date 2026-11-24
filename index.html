@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diamond Elite — Youth Flag Football</title>
+<meta name="description" content="Diamond Elite is a youth flag football club for ages 6–14. Spring 2027 registration is open. View the schedule, meet the roster, and join the squad.">
+<meta name="theme-color" content="#07080d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%2300c3ff' d='M16 2l12 9-12 19L4 11z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <svg class="loader__gem" viewBox="0 0 64 64"><path d="M32 4l24 18-24 38L8 22z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 22h48M32 4l-9 18 9 38 9-38z" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".6"/></svg>
+    <div class="loader__count"><span id="loaderNum">0</span><i>%</i></div>
+    <p>Lacing up the cleats</p>
+  </div>
+</div>
+
+<div class="cursor" id="cursor"><span></span></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Nav -->
+<header class="nav" id="nav">
+  <a href="#top" class="logo" data-cursor>
+    <svg viewBox="0 0 32 32" width="26" height="26"><path d="M16 2l12 9-12 19L4 11z" fill="currentColor"/><path d="M4 11h24M16 2l-5 9 5 19 5-19z" fill="none" stroke="#07080d" stroke-width="1"/></svg>
+    <span>Diamond<b>Elite</b></span>
+  </a>
+  <nav class="nav__links" id="navLinks">
+    <a href="#about" data-cursor>The Club</a>
+    <a href="#schedule" data-cursor>Schedule</a>
+    <a href="#roster" data-cursor>Roster</a>
+    <a href="#register" class="nav__cta" data-cursor>Register <span>→</span></a>
+  </nav>
+  <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero__meta">
+    <span class="pill"><i class="dot"></i> Spring 2027 registration open</span>
+    <span class="hero__est">Est. 2019 · Ages 6–14</span>
+  </div>
+
+  <h1 class="hero__title" aria-label="Diamond Elite">
+    <span class="line line--back"><span class="chars" data-chars>Diamond</span></span>
+    <span class="line line--front"><span class="chars" data-chars>Elite</span></span>
+  </h1>
+
+  <div class="hero__foot">
+    <p class="hero__lede" data-hero-fade>Flag football built on speed, smarts and sportsmanship. <em>Every kid plays. Every kid shines.</em></p>
+    <div class="hero__cta" data-hero-fade>
+      <a href="#register" class="btn btn--lime" data-magnetic data-cursor="Join">Join the squad <span>→</span></a>
+      <a href="#schedule" class="btn btn--ghost" data-magnetic data-cursor>View schedule</a>
+    </div>
+    <div class="hero__scroll" data-hero-fade><span>Scroll</span><i></i></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<section class="marquee" aria-hidden="true">
+  <div class="marquee__track" id="marqueeTrack">
+    <div class="marquee__row">
+      <span>Speed</span><i>◆</i><span class="o">Heart</span><i>◆</i><span>Teamwork</span><i>◆</i><span class="o">Hustle</span><i>◆</i><span>Fair Play</span><i>◆</i><span class="o">Fun First</span><i>◆</i>
+    </div>
+    <div class="marquee__row">
+      <span>Speed</span><i>◆</i><span class="o">Heart</span><i>◆</i><span>Teamwork</span><i>◆</i><span class="o">Hustle</span><i>◆</i><span>Fair Play</span><i>◆</i><span class="o">Fun First</span><i>◆</i>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about section" id="about">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal><i>01</i> The Club</p>
+    <h2 class="display split" data-split>Not just a team. A <em>diamond</em> in the making.</h2>
+
+    <div class="about__grid">
+      <div class="about__copy" data-reveal>
+        <p>Diamond Elite is a no-contact, high-energy flag football program where kids learn the game the right way: smart routes, quick hands, and big-hearted teammates. Our coaches are certified, background-checked, and obsessed with development.</p>
+        <p>Whether it's your child's first snap or fifth season, we build confidence one rep at a time. Pressure creates diamonds. Practice creates champions.</p>
+        <ul class="about__tags">
+          <li>USA Football certified coaches</li>
+          <li>Equal playing time</li>
+          <li>Scholarships available</li>
+        </ul>
+      </div>
+
+      <div class="stats">
+        <div class="stat" data-reveal><b data-count="146">0</b><span>Athletes in the club</span></div>
+        <div class="stat" data-reveal><b data-count="7">0</b><span>Seasons played</span></div>
+        <div class="stat" data-reveal><b data-count="38">0</b><span>Tournament wins</span></div>
+        <div class="stat" data-reveal><b data-count="100" data-suffix="%">0</b><span>Kids who get to play</span></div>
+      </div>
+    </div>
+
+    <div class="coaches" data-reveal>
+      <h3>On the sideline</h3>
+      <div class="coaches__list">
+        <div><b>Coach Marcus Bell</b><span>Head Coach · QB specialist</span></div>
+        <div><b>Coach Dani Reyes</b><span>Offensive Coordinator</span></div>
+        <div><b>Coach Terrence Oyelaran</b><span>Defense &amp; Flag-pull Tech</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule section" id="schedule">
+  <div class="wrap">
+    <div class="schedule__head">
+      <div>
+        <p class="eyebrow" data-reveal><i>02</i> Spring 2027 Season</p>
+        <h2 class="display split" data-split>Game <em>day</em> is every Saturday.</h2>
+      </div>
+      <div class="next" data-reveal>
+        <span class="next__label"><i class="dot"></i> Kickoff countdown</span>
+        <div class="next__timer" id="countdown" aria-live="off">
+          <div><b id="cdD">00</b><small>Days</small></div>
+          <div><b id="cdH">00</b><small>Hrs</small></div>
+          <div><b id="cdM">00</b><small>Min</small></div>
+          <div><b id="cdS">00</b><small>Sec</small></div>
+        </div>
+        <span class="next__vs" id="nextVs"></span>
+      </div>
+    </div>
+
+    <div class="filters" role="tablist" data-reveal>
+      <button class="chip is-on" data-filter="all" data-cursor>All games</button>
+      <button class="chip" data-filter="home" data-cursor>Home</button>
+      <button class="chip" data-filter="away" data-cursor>Away</button>
+      <button class="chip" data-filter="playoff" data-cursor>Playoffs</button>
+    </div>
+
+    <ol class="games" id="games">
+      <!-- LOOP: one <li class="game"> per game. data-loc = home | away | playoff. data-start = ISO datetime (drives the countdown). -->
+      <li class="game" data-loc="home" data-start="2027-03-06T10:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 6</div>
+        <div class="game__opp"><small>WK 01</small><span class="game__vs">vs </span><span class="game__team">Harbor Hawks</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">10:00 AM</span>
+        <span class="game__meta fld">Field 3</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-loc="away" data-start="2027-03-13T10:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 13</div>
+        <div class="game__opp"><small>WK 02</small><span class="game__vs">@ </span><span class="game__team">Iron Wolves</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">10:00 AM</span>
+        <span class="game__meta fld">Wolfpack Park</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-loc="home" data-start="2027-03-20T11:30:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 20</div>
+        <div class="game__opp"><small>WK 03</small><span class="game__vs">vs </span><span class="game__team">Summit Storm</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">11:30 AM</span>
+        <span class="game__meta fld">Field 4</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-loc="away" data-start="2027-03-27T09:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 27</div>
+        <div class="game__opp"><small>WK 04</small><span class="game__vs">@ </span><span class="game__team">Capital Cobras</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">9:00 AM</span>
+        <span class="game__meta fld">Statehouse Turf</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-loc="home" data-start="2027-04-03T10:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 3</div>
+        <div class="game__opp"><small>WK 05</small><span class="game__vs">vs </span><span class="game__team">Redline Rush</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">10:00 AM</span>
+        <span class="game__meta fld">Field 3</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-loc="away" data-start="2027-04-10T13:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 10</div>
+        <div class="game__opp"><small>WK 06</small><span class="game__vs">@ </span><span class="game__team">Coastal Kings</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">1:00 PM</span>
+        <span class="game__meta fld">Bayfront Complex</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-loc="home" data-start="2027-04-17T10:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 17</div>
+        <div class="game__opp"><small>WK 07</small><span class="game__vs">vs </span><span class="game__team">Midtown Mustangs</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">10:00 AM</span>
+        <span class="game__meta fld">Field 3</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-loc="away" data-start="2027-04-24T10:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 24</div>
+        <div class="game__opp"><small>WK 08</small><span class="game__vs">@ </span><span class="game__team">Thunder Ridge</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">10:00 AM</span>
+        <span class="game__meta fld">Ridge Stadium</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-loc="playoff" data-start="2027-05-01T12:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>May 1</div>
+        <div class="game__opp"><small>WK 09</small><span class="game__vs"></span><span class="game__team">Semifinal · TBD</span></div>
+        <span class="game__loc is-playoff">Playoff</span>
+        <span class="game__meta time">12:00 PM</span>
+        <span class="game__meta fld">Riverside Main</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-loc="playoff" data-start="2027-05-08T14:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>May 8</div>
+        <div class="game__opp"><small>WK 10</small><span class="game__vs"></span><span class="game__team">Diamond Bowl</span></div>
+        <span class="game__loc is-playoff">Playoff</span>
+        <span class="game__meta time">2:00 PM</span>
+        <span class="game__meta fld">Riverside Main</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <!-- /LOOP -->
+    </ol>
+    <p class="schedule__note" data-reveal>All games at 10:00 AM unless noted. Weather updates post to the parent app by 7 AM. Bring water, a smile, and a mouthguard.</p>
+  </div>
+</section>
+
+<!-- ROSTER -->
+<section class="roster" id="roster">
+  <div class="roster__intro wrap">
+    <p class="eyebrow" data-reveal><i>03</i> The Roster</p>
+    <h2 class="display split" data-split>Meet the <em>2027</em> squad.</h2>
+    <p class="roster__hint" data-reveal>Scroll to run the field <span>→</span></p>
+  </div>
+  <div class="roster__viewport">
+    <div class="roster__track" id="rosterTrack">
+      <!-- LOOP: one <article class="card"> per player. data-accent = lime | violet | fire (cycle, or map from position). -->
+      <article class="card" data-accent="lime" data-cursor="View">
+        <div class="card__top"><span class="card__pos">QB</span><span>Age 13</span></div>
+        <div class="card__num">07</div>
+        <div class="card__bot">
+          <h3>Jaylen R.</h3><p>Quarterback</p>
+          <div class="card__stats"><div><b>41</b><span>TD</span></div><div><b>212</b><span>Yds</span></div><div><b>68%</b><span>Cmp</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-accent="violet" data-cursor="View">
+        <div class="card__top"><span class="card__pos">WR</span><span>Age 12</span></div>
+        <div class="card__num">01</div>
+        <div class="card__bot">
+          <h3>Maya T.</h3><p>Wide Receiver</p>
+          <div class="card__stats"><div><b>23</b><span>Rec</span></div><div><b>640</b><span>Yds</span></div><div><b>9.8</b><span>YAC</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-accent="fire" data-cursor="View">
+        <div class="card__top"><span class="card__pos">RB</span><span>Age 11</span></div>
+        <div class="card__num">22</div>
+        <div class="card__bot">
+          <h3>Dre W.</h3><p>Running Back</p>
+          <div class="card__stats"><div><b>17</b><span>TD</span></div><div><b>480</b><span>Yds</span></div><div><b>6.1</b><span>Avg</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-accent="lime" data-cursor="View">
+        <div class="card__top"><span class="card__pos">DB</span><span>Age 12</span></div>
+        <div class="card__num">03</div>
+        <div class="card__bot">
+          <h3>Sofia M.</h3><p>Defensive Back</p>
+          <div class="card__stats"><div><b>52</b><span>Pulls</span></div><div><b>9</b><span>INT</span></div><div><b>4</b><span>PBU</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-accent="violet" data-cursor="View">
+        <div class="card__top"><span class="card__pos">WR</span><span>Age 10</span></div>
+        <div class="card__num">11</div>
+        <div class="card__bot">
+          <h3>Eli K.</h3><p>Wide Receiver</p>
+          <div class="card__stats"><div><b>19</b><span>Rec</span></div><div><b>388</b><span>Yds</span></div><div><b>7.4</b><span>YAC</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-accent="fire" data-cursor="View">
+        <div class="card__top"><span class="card__pos">C</span><span>Age 13</span></div>
+        <div class="card__num">05</div>
+        <div class="card__bot">
+          <h3>Amara O.</h3><p>Center</p>
+          <div class="card__stats"><div><b>0</b><span>Snap Err</span></div><div><b>96%</b><span>Acc</span></div><div><b>31</b><span>Blk</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-accent="lime" data-cursor="View">
+        <div class="card__top"><span class="card__pos">DB</span><span>Age 9</span></div>
+        <div class="card__num">14</div>
+        <div class="card__bot">
+          <h3>Theo B.</h3><p>Defensive Back</p>
+          <div class="card__stats"><div><b>38</b><span>Pulls</span></div><div><b>5</b><span>INT</span></div><div><b>2</b><span>PBU</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-accent="violet" data-cursor="View">
+        <div class="card__top"><span class="card__pos">QB</span><span>Age 10</span></div>
+        <div class="card__num">09</div>
+        <div class="card__bot">
+          <h3>Lila C.</h3><p>Quarterback</p>
+          <div class="card__stats"><div><b>22</b><span>TD</span></div><div><b>154</b><span>Yds</span></div><div><b>61%</b><span>Cmp</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-accent="fire" data-cursor="View">
+        <div class="card__top"><span class="card__pos">RB</span><span>Age 8</span></div>
+        <div class="card__num">28</div>
+        <div class="card__bot">
+          <h3>Noah F.</h3><p>Running Back</p>
+          <div class="card__stats"><div><b>9</b><span>TD</span></div><div><b>260</b><span>Yds</span></div><div><b>5.4</b><span>Avg</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-accent="lime" data-cursor="View">
+        <div class="card__top"><span class="card__pos">WR</span><span>Age 9</span></div>
+        <div class="card__num">17</div>
+        <div class="card__bot">
+          <h3>Zuri A.</h3><p>Wide Receiver</p>
+          <div class="card__stats"><div><b>14</b><span>Rec</span></div><div><b>301</b><span>Yds</span></div><div><b>8.2</b><span>YAC</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-accent="violet" data-cursor="View">
+        <div class="card__top"><span class="card__pos">DB</span><span>Age 7</span></div>
+        <div class="card__num">33</div>
+        <div class="card__bot">
+          <h3>Caleb H.</h3><p>Defensive Back</p>
+          <div class="card__stats"><div><b>27</b><span>Pulls</span></div><div><b>3</b><span>INT</span></div><div><b>1</b><span>PBU</span></div></div>
+        </div>
+      </article>
+      <article class="card" data-accent="fire" data-cursor="View">
+        <div class="card__top"><span class="card__pos">WR</span><span>Age 7</span></div>
+        <div class="card__num">02</div>
+        <div class="card__bot">
+          <h3>Ruby P.</h3><p>Wide Receiver</p>
+          <div class="card__stats"><div><b>11</b><span>Rec</span></div><div><b>176</b><span>Yds</span></div><div><b>6.6</b><span>YAC</span></div></div>
+        </div>
+      </article>
+      <!-- /LOOP -->
+      <article class="card card--cta">
+        <h3>Your kid<br>here next.</h3>
+        <a href="#register" class="btn" data-goto="#register" data-cursor>Register now <span>→</span></a>
+      </article>
+    </div>
+  </div>
+  <div class="roster__progress"><i id="rosterBar"></i></div>
+</section>
+
+<!-- REGISTER -->
+<section class="register section" id="register">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal><i>04</i> Registration</p>
+    <h2 class="display split" data-split>Your spot on the <em>roster</em> is waiting.</h2>
+
+    <div class="register__grid">
+      <!-- REGISTRATION: front-end demo form. Replace this <form> with the sports-management plugin's registration shortcode/widget; keep the .summary aside if the plugin can feed it. -->
+      <form class="form" id="regForm" novalidate>
+        <fieldset class="divisions">
+          <legend>1 — Pick a division</legend>
+          <label class="div" data-cursor>
+            <input type="radio" name="division" value="cadets" data-price="185" checked>
+            <span class="div__card"><small>Ages 6–8</small><b>Cadets</b><em>$185</em><span>Learn the basics, make friends, run everywhere.</span></span>
+          </label>
+          <label class="div" data-cursor>
+            <input type="radio" name="division" value="juniors" data-price="215">
+            <span class="div__card"><small>Ages 9–11</small><b>Juniors</b><em>$215</em><span>Real routes, real playbooks, real rivalries.</span></span>
+          </label>
+          <label class="div" data-cursor>
+            <input type="radio" name="division" value="elite" data-price="245">
+            <span class="div__card"><small>Ages 12–14</small><b>Elite</b><em>$245</em><span>Travel tournaments, film study, leadership.</span></span>
+          </label>
+        </fieldset>
+
+        <fieldset class="fields">
+          <legend>2 — Player details</legend>
+          <div class="field"><input id="pName" name="player" placeholder=" " required autocomplete="off"><label for="pName">Player name</label></div>
+          <div class="field"><input id="pAge" name="age" type="number" min="6" max="14" placeholder=" " required><label for="pAge">Age (6–14)</label></div>
+          <div class="field">
+            <select id="pPos" name="position">
+              <option>Not sure yet</option><option>Quarterback</option><option>Receiver</option><option>Running back</option><option>Defensive back</option><option>Center</option>
+            </select><label for="pPos" class="static">Position interest</label>
+          </div>
+          <div class="field">
+            <select id="pSize" name="size"><option>Youth S</option><option>Youth M</option><option>Youth L</option><option>Adult S</option></select>
+            <label for="pSize" class="static">Jersey size</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="fields">
+          <legend>3 — Parent / guardian</legend>
+          <div class="field"><input id="gName" name="guardian" placeholder=" " required autocomplete="off"><label for="gName">Full name</label></div>
+          <div class="field"><input id="gEmail" name="email" type="email" placeholder=" " required autocomplete="off"><label for="gEmail">Email</label></div>
+        </fieldset>
+
+        <label class="check"><input type="checkbox" required><span></span> I've read the code of conduct and waiver.</label>
+
+        <button type="submit" class="btn btn--lime btn--xl" data-magnetic data-cursor="Go">Lock in my spot <span>→</span></button>
+        <p class="form__err" id="formErr" role="alert"></p>
+      </form>
+
+      <aside class="summary" id="summary">
+        <div class="summary__ticket">
+          <p class="summary__tag">Season pass · Spring 2027</p>
+          <h3 id="sumDiv">Cadets</h3>
+          <dl>
+            <div><dt>Player</dt><dd id="sumPlayer">—</dd></div>
+            <div><dt>Season</dt><dd>Mar 6 – Apr 24</dd></div>
+            <div><dt>Includes</dt><dd>Jersey, flags, 8 games</dd></div>
+            <div><dt>Early bird</dt><dd class="save">−$20 until Jan 31</dd></div>
+          </dl>
+          <div class="summary__total"><span>Total</span><b id="sumTotal">$165</b></div>
+          <div class="summary__perf" aria-hidden="true"></div>
+        </div>
+        <p class="summary__note">Sibling discount and need-based scholarships available — just ask at checkout.</p>
+      </aside>
+    </div>
+  </div>
+
+  <div class="success" id="success" role="dialog" aria-modal="true" aria-labelledby="succTitle" hidden>
+    <div class="success__card">
+      <div class="success__gem"><svg viewBox="0 0 64 64"><path d="M32 4l24 18-24 38L8 22z" fill="currentColor"/></svg></div>
+      <h3 id="succTitle">You're on the roster!</h3>
+      <p id="succMsg">Check your inbox for next steps.</p>
+      <button class="btn btn--ghost" id="succClose" data-cursor>Back to the field</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__big" data-footer-big>
+      <span>See you on</span>
+      <span class="o">the field.</span>
+    </div>
+    <div class="footer__grid">
+      <div>
+        <h4>Home field</h4>
+        <p>Riverside Sports Complex<br>1200 Marigold Way, Fields 3 &amp; 4</p>
+      </div>
+      <div>
+        <h4>Say hello</h4>
+        <p><a href="#" data-cursor>hello@diamondelite.example</a><br><a href="#" data-cursor>(555) 014-2027</a></p>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <p><a href="#" data-cursor>Instagram</a> · <a href="#" data-cursor>TikTok</a> · <a href="#" data-cursor>YouTube</a></p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <p><a href="#about" data-cursor>Club</a> · <a href="#schedule" data-cursor>Schedule</a> · <a href="#roster" data-cursor>Roster</a> · <a href="#register" data-cursor>Register</a></p>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <span>© 2027 Diamond Elite Youth Flag Football. A fictional club.</span>
+      <a href="#top" data-cursor>Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
