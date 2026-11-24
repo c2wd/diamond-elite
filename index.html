@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Diamond Elite — Youth Flag Football</title>
-<meta name="description" content="Diamond Elite is a youth flag football club for ages 6–14. Spring 2027 registration is open. View the schedule, meet the roster, and join the squad.">
+<meta name="description" content="Diamond Elite is a youth flag football club with Rec and Travel leagues from 6U through High School Girls. Spring 2027 registration is open. View the schedule, meet the roster, and join the squad.">
 <meta name="theme-color" content="#07080d">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%2300c3ff' d='M16 2l12 9-12 19L4 11z'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
 <!-- Loader -->
 <div class="loader" id="loader" aria-hidden="true">
   <div class="loader__inner">
-    <svg class="loader__gem" viewBox="0 0 64 64"><path d="M32 4l24 18-24 38L8 22z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 22h48M32 4l-9 18 9 38 9-38z" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".6"/></svg>
+    <img class="loader__gem" src="assets/favicon.svg" alt="">
     <div class="loader__count"><span id="loaderNum">0</span><i>%</i></div>
     <p>Lacing up the cleats</p>
   </div>
@@ -28,14 +28,14 @@
 
 <!-- Nav -->
 <header class="nav" id="nav">
-  <a href="#top" class="logo" data-cursor>
-    <svg viewBox="0 0 32 32" width="26" height="26"><path d="M16 2l12 9-12 19L4 11z" fill="currentColor"/><path d="M4 11h24M16 2l-5 9 5 19 5-19z" fill="none" stroke="#07080d" stroke-width="1"/></svg>
-    <span>Diamond<b>Elite</b></span>
+  <a href="#top" class="logo" aria-label="Diamond Elite — home" data-cursor>
+    <img src="assets/DianmondElite_Logo.svg" alt="Diamond Elite">
   </a>
   <nav class="nav__links" id="navLinks">
     <a href="#about" data-cursor>The Club</a>
+    <a href="#programs" data-cursor>Programs</a>
     <a href="#schedule" data-cursor>Schedule</a>
-    <a href="#roster" data-cursor>Roster</a>
+    <a href="roster.html" data-cursor>Roster</a>
     <a href="#register" class="nav__cta" data-cursor>Register <span>→</span></a>
   </nav>
   <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
@@ -47,7 +47,7 @@
 <section class="hero" id="hero">
   <div class="hero__meta">
     <span class="pill"><i class="dot"></i> Spring 2027 registration open</span>
-    <span class="hero__est">Est. 2019 · Ages 6–14</span>
+    <span class="hero__est">Est. 2019 · 6U – High School Girls</span>
   </div>
 
   <h1 class="hero__title" aria-label="Diamond Elite">
@@ -113,12 +113,64 @@
   </div>
 </section>
 
+<!-- PROGRAMS -->
+<section class="programs section" id="programs">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal><i>02</i> Programs</p>
+    <h2 class="display split" data-split>Two ways to <em>play.</em></h2>
+
+    <div class="programs__grid">
+      <!-- LOOP: one <article class="program"> per program. Add the modifier program--travel for the filled card. -->
+      <article class="program" data-reveal>
+        <div class="program__top"><span class="program__tag">Rec League</span><span class="program__num">01</span></div>
+        <div class="program__body">
+          <h3>Recreational League</h3>
+          <p>Fun, inclusive league play for every skill level. Players build fundamentals, sportsmanship and teamwork in divisions from 6U through High School Girls, with a season-based schedule close to home.</p>
+        </div>
+        <div class="program__foot">
+          <ul class="program__tags"><li>Every skill level</li><li>Season-based schedule</li><li>Close to home</li></ul>
+          <a href="#register" class="btn btn--lime" data-cursor="Join">Join the Rec League <span>→</span></a>
+        </div>
+      </article>
+      <article class="program program--travel" data-reveal>
+        <div class="program__top"><span class="program__tag">Travel League</span><span class="program__num">02</span></div>
+        <div class="program__body">
+          <h3>Travel League</h3>
+          <p>Tryout-based travel rosters for driven athletes. Compete in tournaments against top competition, train with advanced coaching and represent Diamond Elite on the road.</p>
+        </div>
+        <div class="program__foot">
+          <ul class="program__tags"><li>Tryout-based</li><li>Tournament play</li><li>Advanced coaching</li></ul>
+          <a href="#register" class="btn" data-cursor="Try out">Try out for Travel <span>→</span></a>
+        </div>
+      </article>
+      <!-- /LOOP -->
+    </div>
+
+    <div class="divs" data-reveal>
+      <div class="divs__head">
+        <h3>Divisions</h3>
+        <p>Pick an age group to see its roster.</p>
+      </div>
+      <ul class="divs__list">
+        <!-- LOOP: one <li> per division. href hash = the roster filter key (6u | 8u | 10u | 12u | 14u | hs). -->
+        <li><a class="divt" href="roster.html#6u" data-cursor="View"><small>Division</small><b>6U</b><span>View roster →</span></a></li>
+        <li><a class="divt" href="roster.html#8u" data-cursor="View"><small>Division</small><b>8U</b><span>View roster →</span></a></li>
+        <li><a class="divt" href="roster.html#10u" data-cursor="View"><small>Division</small><b>10U</b><span>View roster →</span></a></li>
+        <li><a class="divt" href="roster.html#12u" data-cursor="View"><small>Division</small><b>12U</b><span>View roster →</span></a></li>
+        <li><a class="divt" href="roster.html#14u" data-cursor="View"><small>Division</small><b>14U</b><span>View roster →</span></a></li>
+        <li><a class="divt" href="roster.html#hs" data-cursor="View"><small>Division</small><b>HS</b><span>High School Girls →</span></a></li>
+        <!-- /LOOP -->
+      </ul>
+    </div>
+  </div>
+</section>
+
 <!-- SCHEDULE -->
 <section class="schedule section" id="schedule">
   <div class="wrap">
     <div class="schedule__head">
       <div>
-        <p class="eyebrow" data-reveal><i>02</i> Spring 2027 Season</p>
+        <p class="eyebrow" data-reveal><i>03</i> Spring 2027 Season</p>
         <h2 class="display split" data-split>Game <em>day</em> is every Saturday.</h2>
       </div>
       <div class="next" data-reveal>
@@ -133,7 +185,7 @@
       </div>
     </div>
 
-    <div class="filters" role="tablist" data-reveal>
+    <div class="filters" id="gameFilters" role="tablist" data-reveal>
       <button class="chip is-on" data-filter="all" data-cursor>All games</button>
       <button class="chip" data-filter="home" data-cursor>Home</button>
       <button class="chip" data-filter="away" data-cursor>Away</button>
@@ -228,126 +280,50 @@
   </div>
 </section>
 
-<!-- ROSTER -->
-<section class="roster" id="roster">
-  <div class="roster__intro wrap">
-    <p class="eyebrow" data-reveal><i>03</i> The Roster</p>
-    <h2 class="display split" data-split>Meet the <em>2027</em> squad.</h2>
-    <p class="roster__hint" data-reveal>Scroll to run the field <span>→</span></p>
+<!-- ROSTER TEASER (full roster lives on roster.html) -->
+<section class="rteaser section" id="roster">
+  <div class="wrap rteaser__grid">
+    <div>
+      <p class="eyebrow" data-reveal><i>04</i> The Roster</p>
+      <h2 class="display split" data-split>Meet the <em>2027</em> squad.</h2>
+      <p class="rteaser__copy" data-reveal>Every division, every jersey number, every stat. Browse the full roster by age group, from 6U through High School Girls.</p>
+      <a href="roster.html" class="btn btn--lime" data-magnetic data-cursor="Go" data-reveal>See the full roster <span>→</span></a>
+    </div>
+    <a class="jerseys" href="roster.html" aria-label="View the full roster" data-reveal>
+      <span>07</span><span>01</span><span>22</span><span>03</span><span>11</span><span>05</span>
+    </a>
   </div>
-  <div class="roster__viewport">
-    <div class="roster__track" id="rosterTrack">
-      <!-- LOOP: one <article class="card"> per player. data-accent = lime | violet | fire (cycle, or map from position). -->
-      <article class="card" data-accent="lime" data-cursor="View">
-        <div class="card__top"><span class="card__pos">QB</span><span>Age 13</span></div>
-        <div class="card__num">07</div>
-        <div class="card__bot">
-          <h3>Jaylen R.</h3><p>Quarterback</p>
-          <div class="card__stats"><div><b>41</b><span>TD</span></div><div><b>212</b><span>Yds</span></div><div><b>68%</b><span>Cmp</span></div></div>
-        </div>
-      </article>
-      <article class="card" data-accent="violet" data-cursor="View">
-        <div class="card__top"><span class="card__pos">WR</span><span>Age 12</span></div>
-        <div class="card__num">01</div>
-        <div class="card__bot">
-          <h3>Maya T.</h3><p>Wide Receiver</p>
-          <div class="card__stats"><div><b>23</b><span>Rec</span></div><div><b>640</b><span>Yds</span></div><div><b>9.8</b><span>YAC</span></div></div>
-        </div>
-      </article>
-      <article class="card" data-accent="fire" data-cursor="View">
-        <div class="card__top"><span class="card__pos">RB</span><span>Age 11</span></div>
-        <div class="card__num">22</div>
-        <div class="card__bot">
-          <h3>Dre W.</h3><p>Running Back</p>
-          <div class="card__stats"><div><b>17</b><span>TD</span></div><div><b>480</b><span>Yds</span></div><div><b>6.1</b><span>Avg</span></div></div>
-        </div>
-      </article>
-      <article class="card" data-accent="lime" data-cursor="View">
-        <div class="card__top"><span class="card__pos">DB</span><span>Age 12</span></div>
-        <div class="card__num">03</div>
-        <div class="card__bot">
-          <h3>Sofia M.</h3><p>Defensive Back</p>
-          <div class="card__stats"><div><b>52</b><span>Pulls</span></div><div><b>9</b><span>INT</span></div><div><b>4</b><span>PBU</span></div></div>
-        </div>
-      </article>
-      <article class="card" data-accent="violet" data-cursor="View">
-        <div class="card__top"><span class="card__pos">WR</span><span>Age 10</span></div>
-        <div class="card__num">11</div>
-        <div class="card__bot">
-          <h3>Eli K.</h3><p>Wide Receiver</p>
-          <div class="card__stats"><div><b>19</b><span>Rec</span></div><div><b>388</b><span>Yds</span></div><div><b>7.4</b><span>YAC</span></div></div>
-        </div>
-      </article>
-      <article class="card" data-accent="fire" data-cursor="View">
-        <div class="card__top"><span class="card__pos">C</span><span>Age 13</span></div>
-        <div class="card__num">05</div>
-        <div class="card__bot">
-          <h3>Amara O.</h3><p>Center</p>
-          <div class="card__stats"><div><b>0</b><span>Snap Err</span></div><div><b>96%</b><span>Acc</span></div><div><b>31</b><span>Blk</span></div></div>
-        </div>
-      </article>
-      <article class="card" data-accent="lime" data-cursor="View">
-        <div class="card__top"><span class="card__pos">DB</span><span>Age 9</span></div>
-        <div class="card__num">14</div>
-        <div class="card__bot">
-          <h3>Theo B.</h3><p>Defensive Back</p>
-          <div class="card__stats"><div><b>38</b><span>Pulls</span></div><div><b>5</b><span>INT</span></div><div><b>2</b><span>PBU</span></div></div>
-        </div>
-      </article>
-      <article class="card" data-accent="violet" data-cursor="View">
-        <div class="card__top"><span class="card__pos">QB</span><span>Age 10</span></div>
-        <div class="card__num">09</div>
-        <div class="card__bot">
-          <h3>Lila C.</h3><p>Quarterback</p>
-          <div class="card__stats"><div><b>22</b><span>TD</span></div><div><b>154</b><span>Yds</span></div><div><b>61%</b><span>Cmp</span></div></div>
-        </div>
-      </article>
-      <article class="card" data-accent="fire" data-cursor="View">
-        <div class="card__top"><span class="card__pos">RB</span><span>Age 8</span></div>
-        <div class="card__num">28</div>
-        <div class="card__bot">
-          <h3>Noah F.</h3><p>Running Back</p>
-          <div class="card__stats"><div><b>9</b><span>TD</span></div><div><b>260</b><span>Yds</span></div><div><b>5.4</b><span>Avg</span></div></div>
-        </div>
-      </article>
-      <article class="card" data-accent="lime" data-cursor="View">
-        <div class="card__top"><span class="card__pos">WR</span><span>Age 9</span></div>
-        <div class="card__num">17</div>
-        <div class="card__bot">
-          <h3>Zuri A.</h3><p>Wide Receiver</p>
-          <div class="card__stats"><div><b>14</b><span>Rec</span></div><div><b>301</b><span>Yds</span></div><div><b>8.2</b><span>YAC</span></div></div>
-        </div>
-      </article>
-      <article class="card" data-accent="violet" data-cursor="View">
-        <div class="card__top"><span class="card__pos">DB</span><span>Age 7</span></div>
-        <div class="card__num">33</div>
-        <div class="card__bot">
-          <h3>Caleb H.</h3><p>Defensive Back</p>
-          <div class="card__stats"><div><b>27</b><span>Pulls</span></div><div><b>3</b><span>INT</span></div><div><b>1</b><span>PBU</span></div></div>
-        </div>
-      </article>
-      <article class="card" data-accent="fire" data-cursor="View">
-        <div class="card__top"><span class="card__pos">WR</span><span>Age 7</span></div>
-        <div class="card__num">02</div>
-        <div class="card__bot">
-          <h3>Ruby P.</h3><p>Wide Receiver</p>
-          <div class="card__stats"><div><b>11</b><span>Rec</span></div><div><b>176</b><span>Yds</span></div><div><b>6.6</b><span>YAC</span></div></div>
-        </div>
-      </article>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="voices section" id="voices">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal><i>05</i> Testimonials</p>
+    <h2 class="display split" data-split>Straight from the <em>sideline.</em></h2>
+
+    <div class="voices__grid">
+      <!-- LOOP: one <figure class="quote"> per testimonial. The first one also gets quote--feature. -->
+      <figure class="quote quote--feature" data-reveal>
+        <blockquote>This season may be over, but the memories and friendships will stay with me forever. We didn't just win a championship, we made memories and a family.</blockquote>
+        <figcaption><span class="quote__av">BS</span><span class="quote__who"><b>Bella S.</b><small>Athlete</small></span></figcaption>
+      </figure>
+      <figure class="quote" data-reveal>
+        <blockquote>High energy and great facilities. It's a fantastic way to spend the time with my family.</blockquote>
+        <figcaption><span class="quote__av">DR</span><span class="quote__who"><b>David R.</b><small>Parent</small></span></figcaption>
+      </figure>
+      <figure class="quote" data-reveal>
+        <blockquote>The coaching is top-tier. My son has grown so much in confidence and teamwork this season.</blockquote>
+        <figcaption><span class="quote__av">MT</span><span class="quote__who"><b>Marcus T.</b><small>Parent</small></span></figcaption>
+      </figure>
       <!-- /LOOP -->
-      <article class="card card--cta">
-        <h3>Your kid<br>here next.</h3>
-        <a href="#register" class="btn" data-goto="#register" data-cursor>Register now <span>→</span></a>
-      </article>
     </div>
   </div>
-  <div class="roster__progress"><i id="rosterBar"></i></div>
 </section>
 
 <!-- REGISTER -->
 <section class="register section" id="register">
   <div class="wrap">
-    <p class="eyebrow" data-reveal><i>04</i> Registration</p>
+    <p class="eyebrow" data-reveal><i>06</i> Registration</p>
     <h2 class="display split" data-split>Your spot on the <em>roster</em> is waiting.</h2>
 
     <div class="register__grid">
@@ -433,6 +409,7 @@
     </div>
     <div class="footer__grid">
       <div>
+        <img class="footer__icon" src="assets/DianmondElite_Icon.svg" alt="Diamond Elite">
         <h4>Home field</h4>
         <p>Riverside Sports Complex<br>1200 Marigold Way, Fields 3 &amp; 4</p>
       </div>
@@ -446,7 +423,7 @@
       </div>
       <div>
         <h4>Navigate</h4>
-        <p><a href="#about" data-cursor>Club</a> · <a href="#schedule" data-cursor>Schedule</a> · <a href="#roster" data-cursor>Roster</a> · <a href="#register" data-cursor>Register</a></p>
+        <p><a href="#about" data-cursor>Club</a> · <a href="#programs" data-cursor>Programs</a> · <a href="#schedule" data-cursor>Schedule</a> · <a href="roster.html" data-cursor>Roster</a> · <a href="#register" data-cursor>Register</a></p>
       </div>
     </div>
     <div class="footer__legal">
