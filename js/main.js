@@ -8,7 +8,7 @@
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
   if (RM) gsap.globalTimeline.timeScale(60);
 
-  const DIV = { cadets: 'Cadets', juniors: 'Juniors', elite: 'Elite' };
+  const DIV = { '6u': '6U', '8u': '8U', '10u': '10U', '12u': '12U', '14u': '14U', hs: 'HS Girls' };
   const gamesEl = $('#games');
 
   /* ---------------- CURSOR ---------------- */
@@ -190,7 +190,13 @@
   const form = $('#regForm');
   if (form) {
   const sumDiv = $('#sumDiv'), sumPlayer = $('#sumPlayer'), sumTotal = $('#sumTotal');
-  const total = { v: 165 };
+  // preselect from #hash (e.g. registration.html#10u), then sync the summary
+  const hashDiv = $(`input[name=division][value="${location.hash.slice(1).toLowerCase()}"]`, form);
+  if (hashDiv) hashDiv.checked = true;
+  const first = $('input[name=division]:checked', form);
+  const total = { v: +first.dataset.price - 20 };
+  sumDiv.textContent = DIV[first.value];
+  sumTotal.textContent = '$' + total.v;
   function updateSummary() {
     const sel = $('input[name=division]:checked', form);
     const price = +sel.dataset.price - 20;
@@ -202,8 +208,8 @@
     if (e.target.name === 'division') updateSummary();
     // suggest a division from age
     if (e.target.name === 'age') {
-      const a = +e.target.value, d = a <= 8 ? 'cadets' : a <= 11 ? 'juniors' : 'elite';
-      if (a >= 6 && a <= 14) { const r = $(`input[value=${d}]`, form); if (!r.checked) { r.checked = true; updateSummary(); } }
+      const a = +e.target.value, d = a <= 6 ? '6u' : a <= 8 ? '8u' : a <= 10 ? '10u' : a <= 12 ? '12u' : a <= 14 ? '14u' : 'hs';
+      if (a >= 4 && a <= 18) { const r = $(`input[name=division][value="${d}"]`, form); if (!r.checked) { r.checked = true; updateSummary(); } }
     }
   });
   $('#pName').addEventListener('input', e => sumPlayer.textContent = e.target.value.trim() || '—');

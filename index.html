@@ -36,7 +36,7 @@
     <a href="#programs" data-cursor>Programs</a>
     <a href="#schedule" data-cursor>Schedule</a>
     <a href="roster.html" data-cursor>Roster</a>
-    <a href="#register" class="nav__cta" data-cursor>Register <span>→</span></a>
+    <a href="registration.html" class="nav__cta" data-cursor>Register <span>→</span></a>
   </nav>
   <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
 </header>
@@ -58,7 +58,7 @@
   <div class="hero__foot">
     <p class="hero__lede" data-hero-fade>Flag football built on speed, smarts and sportsmanship. <em>Every kid plays. Every kid shines.</em></p>
     <div class="hero__cta" data-hero-fade>
-      <a href="#register" class="btn btn--lime" data-magnetic data-cursor="Join">Join the squad <span>→</span></a>
+      <a href="registration.html" class="btn btn--lime" data-magnetic data-cursor="Join">Join the squad <span>→</span></a>
       <a href="#schedule" class="btn btn--ghost" data-magnetic data-cursor>View schedule</a>
     </div>
     <div class="hero__scroll" data-hero-fade><span>Scroll</span><i></i></div>
@@ -129,7 +129,7 @@
         </div>
         <div class="program__foot">
           <ul class="program__tags"><li>Every skill level</li><li>Season-based schedule</li><li>Close to home</li></ul>
-          <a href="#register" class="btn btn--lime" data-cursor="Join">Join the Rec League <span>→</span></a>
+          <a href="registration.html" class="btn btn--lime" data-cursor="Join">Join the Rec League <span>→</span></a>
         </div>
       </article>
       <article class="program program--travel" data-reveal>
@@ -140,7 +140,7 @@
         </div>
         <div class="program__foot">
           <ul class="program__tags"><li>Tryout-based</li><li>Tournament play</li><li>Advanced coaching</li></ul>
-          <a href="#register" class="btn" data-cursor="Try out">Try out for Travel <span>→</span></a>
+          <a href="registration.html" class="btn" data-cursor="Try out">Try out for Travel <span>→</span></a>
         </div>
       </article>
       <!-- /LOOP -->
@@ -320,82 +320,31 @@
   </div>
 </section>
 
-<!-- REGISTER -->
-<section class="register section" id="register">
-  <div class="wrap">
-    <p class="eyebrow" data-reveal><i>06</i> Registration</p>
-    <h2 class="display split" data-split>Your spot on the <em>roster</em> is waiting.</h2>
-
-    <div class="register__grid">
-      <!-- REGISTRATION: front-end demo form. Replace this <form> with the sports-management plugin's registration shortcode/widget; keep the .summary aside if the plugin can feed it. -->
-      <form class="form" id="regForm" novalidate>
-        <fieldset class="divisions">
-          <legend>1 — Pick a division</legend>
-          <label class="div" data-cursor>
-            <input type="radio" name="division" value="cadets" data-price="185" checked>
-            <span class="div__card"><small>Ages 6–8</small><b>Cadets</b><em>$185</em><span>Learn the basics, make friends, run everywhere.</span></span>
-          </label>
-          <label class="div" data-cursor>
-            <input type="radio" name="division" value="juniors" data-price="215">
-            <span class="div__card"><small>Ages 9–11</small><b>Juniors</b><em>$215</em><span>Real routes, real playbooks, real rivalries.</span></span>
-          </label>
-          <label class="div" data-cursor>
-            <input type="radio" name="division" value="elite" data-price="245">
-            <span class="div__card"><small>Ages 12–14</small><b>Elite</b><em>$245</em><span>Travel tournaments, film study, leadership.</span></span>
-          </label>
-        </fieldset>
-
-        <fieldset class="fields">
-          <legend>2 — Player details</legend>
-          <div class="field"><input id="pName" name="player" placeholder=" " required autocomplete="off"><label for="pName">Player name</label></div>
-          <div class="field"><input id="pAge" name="age" type="number" min="6" max="14" placeholder=" " required><label for="pAge">Age (6–14)</label></div>
-          <div class="field">
-            <select id="pPos" name="position">
-              <option>Not sure yet</option><option>Quarterback</option><option>Receiver</option><option>Running back</option><option>Defensive back</option><option>Center</option>
-            </select><label for="pPos" class="static">Position interest</label>
-          </div>
-          <div class="field">
-            <select id="pSize" name="size"><option>Youth S</option><option>Youth M</option><option>Youth L</option><option>Adult S</option></select>
-            <label for="pSize" class="static">Jersey size</label>
-          </div>
-        </fieldset>
-
-        <fieldset class="fields">
-          <legend>3 — Parent / guardian</legend>
-          <div class="field"><input id="gName" name="guardian" placeholder=" " required autocomplete="off"><label for="gName">Full name</label></div>
-          <div class="field"><input id="gEmail" name="email" type="email" placeholder=" " required autocomplete="off"><label for="gEmail">Email</label></div>
-        </fieldset>
-
-        <label class="check"><input type="checkbox" required><span></span> I've read the code of conduct and waiver.</label>
-
-        <button type="submit" class="btn btn--lime btn--xl" data-magnetic data-cursor="Go">Lock in my spot <span>→</span></button>
-        <p class="form__err" id="formErr" role="alert"></p>
-      </form>
-
-      <aside class="summary" id="summary">
-        <div class="summary__ticket">
-          <p class="summary__tag">Season pass · Spring 2027</p>
-          <h3 id="sumDiv">Cadets</h3>
-          <dl>
-            <div><dt>Player</dt><dd id="sumPlayer">—</dd></div>
-            <div><dt>Season</dt><dd>Mar 6 – Apr 24</dd></div>
-            <div><dt>Includes</dt><dd>Jersey, flags, 8 games</dd></div>
-            <div><dt>Early bird</dt><dd class="save">−$20 until Jan 31</dd></div>
-          </dl>
-          <div class="summary__total"><span>Total</span><b id="sumTotal">$165</b></div>
-          <div class="summary__perf" aria-hidden="true"></div>
-        </div>
-        <p class="summary__note">Sibling discount and need-based scholarships available — just ask at checkout.</p>
-      </aside>
+<!-- REGISTRATION CTA (the full form lives on registration.html) -->
+<section class="register regcta section" id="register">
+  <div class="wrap regcta__grid">
+    <div>
+      <p class="eyebrow" data-reveal><i>06</i> Registration</p>
+      <h2 class="display split" data-split>Your spot on the <em>roster</em> is waiting.</h2>
+      <p class="regcta__copy" data-reveal>Spring 2027 registration is open for every division, 6U through High School Girls. Early-bird pricing runs through Jan 31, and sibling discounts and need-based scholarships are available.</p>
+      <div class="regcta__btns" data-reveal>
+        <a href="registration.html" class="btn btn--lime btn--lg" data-magnetic data-cursor="Go">Register now <span>→</span></a>
+        <a href="roster.html" class="btn btn--ghost btn--lg" data-magnetic data-cursor>Browse the roster</a>
+      </div>
     </div>
-  </div>
-
-  <div class="success" id="success" role="dialog" aria-modal="true" aria-labelledby="succTitle" hidden>
-    <div class="success__card">
-      <div class="success__gem"><svg viewBox="0 0 64 64"><path d="M32 4l24 18-24 38L8 22z" fill="currentColor"/></svg></div>
-      <h3 id="succTitle">You're on the roster!</h3>
-      <p id="succMsg">Check your inbox for next steps.</p>
-      <button class="btn btn--ghost" id="succClose" data-cursor>Back to the field</button>
+    <div class="summary regcta__sum" data-reveal>
+      <a href="registration.html" class="summary__ticket" data-cursor="Go" aria-label="Register for Spring 2027">
+        <p class="summary__tag">Season pass · Spring 2027</p>
+        <h3>6U–HS</h3>
+        <dl>
+          <div><dt>Divisions</dt><dd>6U · 8U · 10U · 12U · 14U · HS Girls</dd></div>
+          <div><dt>Season</dt><dd>Mar 6 – Apr 24</dd></div>
+          <div><dt>Includes</dt><dd>Jersey, flags, 8 games</dd></div>
+          <div><dt>Early bird</dt><dd class="save">−$20 until Jan 31</dd></div>
+        </dl>
+        <div class="summary__total"><span>From</span><b>$155</b></div>
+        <div class="summary__perf" aria-hidden="true"></div>
+      </a>
     </div>
   </div>
 </section>
@@ -423,7 +372,7 @@
       </div>
       <div>
         <h4>Navigate</h4>
-        <p><a href="#about" data-cursor>Club</a> · <a href="#programs" data-cursor>Programs</a> · <a href="#schedule" data-cursor>Schedule</a> · <a href="roster.html" data-cursor>Roster</a> · <a href="#register" data-cursor>Register</a></p>
+        <p><a href="#about" data-cursor>Club</a> · <a href="#programs" data-cursor>Programs</a> · <a href="#schedule" data-cursor>Schedule</a> · <a href="roster.html" data-cursor>Roster</a> · <a href="registration.html" data-cursor>Register</a></p>
       </div>
     </div>
     <div class="footer__legal">

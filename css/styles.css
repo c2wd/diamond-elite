@@ -258,6 +258,9 @@ em{font-style:normal}
 .hero--page{min-height:auto;gap:clamp(20px,3vw,40px);padding-top:130px;padding-bottom:clamp(30px,5vw,60px)}
 .hero--page .hero__title{text-align:left;font-size:clamp(3.6rem,calc((100vw - 2 * var(--gut)) / 4.4),19rem);margin-block:0}
 .hero--page .hero__foot{grid-template-columns:1.3fr auto}
+.hero--compact .hero__title{font-size:clamp(3.4rem,calc((100vw - 2 * var(--gut)) / 8),9.5rem)}
+.hero--compact .hero__title .line{padding-bottom:.08em}
+.hero--compact .line--front{margin-top:-.02em}
 .rosterpage{padding-block:0 clamp(80px,12vw,160px)}
 .rfilters{position:sticky;top:56px;z-index:20;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:14px var(--gut);margin-inline:calc(var(--gut) * -1);background:rgba(7,8,13,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-block:1px solid var(--line)}
 .rfilters::-webkit-scrollbar{display:none}
@@ -269,6 +272,16 @@ em{font-style:normal}
 .rgrid .card--cta{rotate:0deg}
 .card[hidden]{display:none}
 
+/* registration cta (home) */
+.regcta__grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(30px,6vw,100px);align-items:center}
+.regcta .display{margin-bottom:26px;max-width:14ch}
+.regcta__copy{color:var(--mute);font-size:clamp(1.05rem,1.4vw,1.3rem);max-width:42ch;margin-bottom:32px}
+.regcta__btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn--lg{padding:20px 34px;font-size:1.02rem}
+.regcta__sum{position:static}
+.regcta__sum .summary__ticket{display:block;max-width:520px;margin-inline:auto}
+.register--page{padding-top:clamp(40px,6vw,80px)}
+
 /* register */
 .register{background:linear-gradient(180deg,rgba(7,8,13,.5),rgba(7,8,13,.9) 25%)}
 .register .display{margin-bottom:clamp(40px,6vw,80px);max-width:14ch}
@@ -276,6 +289,7 @@ em{font-style:normal}
 .form fieldset{border:0;margin-bottom:44px}
 .form legend{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--lime);margin-bottom:18px}
 .divisions{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.divisions .div__card b{font-size:2.1rem}
 .divisions legend{grid-column:1/-1}
 .div{display:block;position:relative}
 .div input{position:absolute;opacity:0;inset:0}
@@ -349,6 +363,7 @@ em{font-style:normal}
   .summary{position:static;max-width:520px}
 }
 @media (max-width:900px){
+  .regcta__grid{grid-template-columns:1fr}
   .programs__grid,.rteaser__grid,.voices__grid{grid-template-columns:1fr}
   .quote--feature{grid-row:auto}
   .hero--page .hero__foot{grid-template-columns:1fr}
@@ -362,10 +377,12 @@ em{font-style:normal}
   .hero__foot{grid-template-columns:1fr}
   .hero__scroll{display:none}
   .nav__links.is-open{color:var(--paper)}
-  .divisions{grid-template-columns:1fr}
+  .divisions{grid-template-columns:1fr 1fr}
   .footer__grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:560px){
+  .divisions .div__card{padding:16px}
+  .divisions .div__card b{font-size:1.8rem}
   .divs__list{grid-template-columns:repeat(2,1fr)}
   .divt{min-height:160px}
   .hero__meta{flex-direction:column;align-items:flex-start;gap:10px}
