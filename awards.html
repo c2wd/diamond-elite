@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Awards — Diamond Elite Youth Flag Football</title>
+<meta name="description" content="Diamond Elite 2026 awards and accolades: player awards, weekly MVPs, coaching and community honors, and team championships.">
+<meta name="theme-color" content="#07080d">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<noscript><style>.loader{display:none}.hero__meta,[data-hero-fade]{opacity:1}</style></noscript>
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <img class="loader__gem" src="assets/favicon.svg" alt="">
+    <div class="loader__count"><span id="loaderNum">0</span><i>%</i></div>
+    <p>Lacing up the cleats</p>
+  </div>
+</div>
+
+<div class="cursor" id="cursor"><span></span></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Nav -->
+<header class="nav" id="nav">
+  <a href="index.html" class="logo" aria-label="Diamond Elite — home" data-cursor>
+    <img src="assets/DianmondElite_Logo.svg" alt="Diamond Elite">
+  </a>
+  <nav class="nav__links" id="navLinks">
+    <a href="index.html#about" data-cursor>The Club</a>
+    <a href="index.html#programs" data-cursor>Programs</a>
+    <a href="schedule.html" data-cursor>Schedule</a>
+    <a href="roster.html" data-cursor>Roster</a>
+    <a href="awards.html" class="is-current" aria-current="page" data-cursor>Awards</a>
+    <a href="registration.html" class="nav__cta" data-cursor>Register <span>→</span></a>
+  </nav>
+  <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+</header>
+
+<main id="top">
+
+<!-- PAGE HERO -->
+<section class="hero hero--page hero--compact">
+  <div class="hero__meta">
+    <span class="pill"><i class="dot"></i> 2026 awards</span>
+    <span class="hero__est">Spring &amp; Fall 2026</span>
+  </div>
+
+  <h1 class="hero__title" aria-label="Trophy case">
+    <span class="line line--back"><span class="chars" data-chars>Trophy</span></span>
+    <span class="line line--front"><span class="chars" data-chars>Case.</span></span>
+  </h1>
+
+  <div class="hero__foot">
+    <p class="hero__lede" data-hero-fade>Celebrating the athletes, coaches and community partners who made 2026 a season to remember. <em>Champions are built one rep at a time.</em></p>
+    <div class="hero__cta" data-hero-fade>
+      <a href="registration.html" class="btn btn--lime" data-magnetic data-cursor="Join">Join the squad <span>→</span></a>
+      <a href="roster.html" class="btn btn--ghost" data-magnetic data-cursor>View roster</a>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section class="awardspage section">
+  <div class="wrap">
+    <div class="rfilters" id="awardFilters" role="group" aria-label="Filter awards">
+      <button class="chip is-on" data-filter="all" aria-pressed="true" data-cursor>All</button>
+      <button class="chip" data-filter="team" aria-pressed="false" data-cursor>Team Honors</button>
+      <button class="chip" data-filter="spring" aria-pressed="false" data-cursor>Spring 2026</button>
+      <button class="chip" data-filter="fall" aria-pressed="false" data-cursor>Fall 2026</button>
+      <button class="chip" data-filter="weekly" aria-pressed="false" data-cursor>Weekly MVPs</button>
+      <button class="chip" data-filter="community" aria-pressed="false" data-cursor>Coaches &amp; Community</button>
+    </div>
+    <p class="rcount" id="acount" aria-live="polite" data-total="39"></p>
+
+    <div id="awards">
+      <!-- LOOP: one <section class="agroup" data-cat="..."> per award group, each holding <article class="award"> cards.
+           data-cat    = team | spring | fall | weekly | community   (drives the category chips)
+           award--mvp  = filled card for MVP awards, award--champ = filled card for champions -->
+    <section class="agroup" data-cat="team" id="team">
+      <div class="agroup__head">
+        <p class="eyebrow"><i>01</i> Championships</p>
+        <h2 class="agroup__title">Team honors</h2>
+      </div>
+      <div class="agrid">
+        <article class="award award--champ" data-accent="lime">
+          <span class="award__tag">Champions</span>
+          <h4 class="award__name">Lady Cowboys Girls</h4>
+          <p class="award__title">WPA Super Bowl</p>
+        </article>
+        <article class="award award--champ" data-accent="violet">
+          <span class="award__tag">Champions</span>
+          <h4 class="award__name">12U</h4>
+          <p class="award__title">WPA Super Bowl</p>
+        </article>
+        <article class="award award--champ" data-accent="fire">
+          <span class="award__tag">Champions</span>
+          <h4 class="award__name">8U</h4>
+          <p class="award__title">Brownson House</p>
+        </article>
+        <article class="award award--champ" data-accent="lime">
+          <span class="award__tag">Champions</span>
+          <h4 class="award__name">10U</h4>
+          <p class="award__title">Brownson House</p>
+        </article>
+        <article class="award" data-accent="violet">
+          <span class="award__tag">Runners-Up</span>
+          <h4 class="award__name">8U</h4>
+          <p class="award__title">WPA Super Bowl</p>
+        </article>
+        <article class="award" data-accent="fire">
+          <span class="award__tag">Runners-Up</span>
+          <h4 class="award__name">8U</h4>
+          <p class="award__title">Iron City Bowl</p>
+        </article>
+      </div>
+    </section>
+    <section class="agroup" data-cat="spring" id="spring">
+      <div class="agroup__head">
+        <p class="eyebrow"><i>02</i> 2026</p>
+        <h2 class="agroup__title">2026 Spring awards</h2>
+      </div>
+      <div class="agrid">
+        <article class="award" data-accent="lime">
+          <span class="award__tag">8U</span>
+          <h4 class="award__name">Mace Moye</h4>
+          <p class="award__title">Offensive Player of the Year</p>
+        </article>
+        <article class="award" data-accent="violet">
+          <span class="award__tag">8U</span>
+          <h4 class="award__name">Colton Kriston</h4>
+          <p class="award__title">Defensive Player of the Year</p>
+        </article>
+        <article class="award" data-accent="fire">
+          <span class="award__tag">8U</span>
+          <h4 class="award__name">Thomas “Fatty” Cherry Jr.</h4>
+          <p class="award__title">Flag Puller of the Year</p>
+        </article>
+        <article class="award" data-accent="lime">
+          <span class="award__tag">8U</span>
+          <h4 class="award__name">Mason Sweany</h4>
+          <p class="award__title">Newcomer of the Year</p>
+        </article>
+        <article class="award" data-accent="violet">
+          <span class="award__tag">10U</span>
+          <h4 class="award__name">Everett Rickles</h4>
+          <p class="award__title">Offensive Player of the Year</p>
+        </article>
+        <article class="award" data-accent="fire">
+          <span class="award__tag">10U</span>
+          <h4 class="award__name">Chandler Lacks</h4>
+          <p class="award__title">Defensive Player of the Year</p>
+        </article>
+        <article class="award award--mvp" data-accent="lime">
+          <span class="award__tag">12U</span>
+          <h4 class="award__name">Jaiden Lockett</h4>
+          <p class="award__title">MVP</p>
+        </article>
+        <article class="award" data-accent="violet">
+          <span class="award__tag">12U</span>
+          <h4 class="award__name">Hayden Baum</h4>
+          <p class="award__title">Offensive Player of the Year</p>
+        </article>
+        <article class="award" data-accent="fire">
+          <span class="award__tag">12U</span>
+          <h4 class="award__name">Jaheim McElvy</h4>
+          <p class="award__title">Defensive Player of the Year</p>
+        </article>
+        <article class="award" data-accent="lime">
+          <span class="award__tag">12U</span>
+          <h4 class="award__name">Exavior Rivera</h4>
+          <p class="award__title">Most Improved Player</p>
+        </article>
+        <article class="award award--mvp" data-accent="violet">
+          <span class="award__tag">12U</span>
+          <h4 class="award__name">Marley Goehring Jr.</h4>
+          <p class="award__title">Super Bowl MVP</p>
+        </article>
+      </div>
+    </section>
+    <section class="agroup" data-cat="fall" id="fall">
+      <div class="agroup__head">
+        <p class="eyebrow"><i>03</i> 2026</p>
+        <h2 class="agroup__title">2026 Fall awards</h2>
+      </div>
+      <h3 class="agroup__sub">6U Tiny Tykes</h3>
+      <div class="agrid">
+        <article class="award award--mvp" data-accent="lime">
+          <span class="award__tag">6U Tiny Tykes</span>
+          <h4 class="award__name">Trenton Kriston</h4>
+          <p class="award__title">MVP</p>
+        </article>
+        <article class="award" data-accent="violet">
+          <span class="award__tag">6U Tiny Tykes</span>
+          <h4 class="award__name">Zhavia Cherry</h4>
+          <p class="award__title">Offensive Player of the Year</p>
+        </article>
+        <article class="award" data-accent="fire">
+          <span class="award__tag">6U Tiny Tykes</span>
+          <h4 class="award__name">Carter Webb</h4>
+          <p class="award__title">Defensive Player of the Year</p>
+        </article>
+        <article class="award" data-accent="lime">
+          <span class="award__tag">6U Tiny Tykes</span>
+          <h4 class="award__name">Tamaurii Cherry</h4>
+          <p class="award__title">Iron Tyke of the Year</p>
+        </article>
+        <article class="award" data-accent="violet">
+          <span class="award__tag">6U Tiny Tykes</span>
+          <h4 class="award__name">Enix Klaus</h4>
+          <p class="award__title">Comeback Player of the Year</p>
+        </article>
+        <article class="award" data-accent="fire">
+          <span class="award__tag">6U Tiny Tykes</span>
+          <h4 class="award__name">Legynd Jenkins</h4>
+          <p class="award__title">Newcomer of the Year</p>
+        </article>
+        <article class="award" data-accent="lime">
+          <span class="award__tag">6U Tiny Tykes</span>
+          <h4 class="award__name">Kyrie Cherry</h4>
+          <p class="award__title">Littlest Legs &amp; Biggest Heart</p>
+        </article>
+      </div>
+      <h3 class="agroup__sub">Lady Cowboys Girls</h3>
+      <div class="agrid">
+        <article class="award award--mvp" data-accent="lime">
+          <span class="award__tag">Lady Cowboys</span>
+          <h4 class="award__name">Clara Brown</h4>
+          <p class="award__title">MVP</p>
+        </article>
+        <article class="award" data-accent="violet">
+          <span class="award__tag">Lady Cowboys</span>
+          <h4 class="award__name">Laiylah Boyd</h4>
+          <p class="award__title">Offensive Player of the Year</p>
+        </article>
+        <article class="award" data-accent="fire">
+          <span class="award__tag">Lady Cowboys</span>
+          <h4 class="award__name">Elayah Klaus</h4>
+          <p class="award__title">Defensive Player of the Year</p>
+        </article>
+        <article class="award" data-accent="lime">
+          <span class="award__tag">Lady Cowboys</span>
+          <h4 class="award__name">Izabella Shellhammer</h4>
+          <p class="award__title">Most Improved Player</p>
+        </article>
+        <article class="award" data-accent="violet">
+          <span class="award__tag">Lady Cowboys</span>
+          <h4 class="award__name">Egypt Mull</h4>
+          <p class="award__title">Iron Woman of the Year</p>
+        </article>
+        <article class="award" data-accent="fire">
+          <span class="award__tag">Lady Cowboys</span>
+          <h4 class="award__name">Kesiah Shellhammer</h4>
+          <p class="award__title">Sportsmanship Award</p>
+        </article>
+        <article class="award" data-accent="lime">
+          <span class="award__tag">Lady Cowboys</span>
+          <h4 class="award__name">Nyasia Smith</h4>
+          <p class="award__title">Newcomer of the Year</p>
+        </article>
+      </div>
+    </section>
+    <section class="agroup" data-cat="weekly" id="weekly">
+      <div class="agroup__head">
+        <p class="eyebrow"><i>04</i> 2026 Tiny Tykes</p>
+        <h2 class="agroup__title">Weekly MVPs</h2>
+      </div>
+      <div class="agrid">
+        <article class="award" data-accent="lime">
+          <span class="award__tag">Week 1</span>
+          <h4 class="award__name">Kyrie Cherry</h4>
+          <p class="award__title">Weekly MVP</p>
+        </article>
+        <article class="award" data-accent="violet">
+          <span class="award__tag">Week 2</span>
+          <h4 class="award__name">Trenton Kriston</h4>
+          <p class="award__title">Weekly MVP</p>
+        </article>
+        <article class="award" data-accent="fire">
+          <span class="award__tag">Week 3</span>
+          <h4 class="award__name">Enix Klaus</h4>
+          <p class="award__title">Weekly MVP</p>
+        </article>
+        <article class="award" data-accent="lime">
+          <span class="award__tag">Week 4</span>
+          <h4 class="award__name">Carter Webb</h4>
+          <p class="award__title">Weekly MVP</p>
+        </article>
+        <article class="award" data-accent="violet">
+          <span class="award__tag">Week 5</span>
+          <h4 class="award__name">Legynd Jenkins</h4>
+          <p class="award__title">Weekly MVP</p>
+        </article>
+      </div>
+    </section>
+    <section class="agroup" data-cat="community" id="community">
+      <div class="agroup__head">
+        <p class="eyebrow"><i>05</i> Beyond the field</p>
+        <h2 class="agroup__title">Coaching &amp; community awards</h2>
+      </div>
+      <div class="agrid">
+        <article class="award" data-accent="lime">
+          <span class="award__tag">Coach</span>
+          <h4 class="award__name">Coach Lyle Webb</h4>
+          <p class="award__title">WPA Coach of the Week</p>
+        </article>
+        <article class="award" data-accent="violet">
+          <span class="award__tag">Coach</span>
+          <h4 class="award__name">Coach Tejai Cherry</h4>
+          <p class="award__title">WPA Coach of the Week</p>
+        </article>
+        <article class="award" data-accent="fire">
+          <span class="award__tag">Community</span>
+          <h4 class="award__name">Claude Shellhammer &amp; Patchwork Provisions</h4>
+          <p class="award__title">Community Action Sponsor of the Year</p>
+        </article>
+      </div>
+    </section>
+      <!-- /LOOP -->
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__big" data-footer-big>
+      <span>We got</span>
+      <span class="o">next.</span>
+    </div>
+    <div class="footer__grid">
+      <div>
+        <img class="footer__icon" src="assets/DianmondElite_Icon.svg" alt="Diamond Elite">
+        <h4>Home field</h4>
+        <p>Riverside Sports Complex<br>1200 Marigold Way, Fields 3 &amp; 4</p>
+      </div>
+      <div>
+        <h4>Say hello</h4>
+        <p><a href="#" data-cursor>hello@diamondelite.example</a><br><a href="#" data-cursor>(555) 014-2027</a></p>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <p><a href="#" data-cursor>Instagram</a> · <a href="#" data-cursor>TikTok</a> · <a href="#" data-cursor>YouTube</a></p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <p><a href="index.html#about" data-cursor>Club</a> · <a href="index.html#programs" data-cursor>Programs</a> · <a href="schedule.html" data-cursor>Schedule</a> · <a href="roster.html" data-cursor>Roster</a> · <a href="awards.html" data-cursor>Awards</a> · <a href="registration.html" data-cursor>Register</a></p>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <span>© 2027 Diamond Elite Youth Flag Football. A fictional club.</span>
+      <a href="#top" data-cursor>Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+<script src="js/gsap-fallback.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

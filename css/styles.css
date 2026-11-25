@@ -303,6 +303,29 @@ em{font-style:normal}
 .regcta__sum .summary__ticket{display:block;max-width:520px;margin-inline:auto}
 .register--page{padding-top:clamp(40px,6vw,80px)}
 
+/* ---------- awards page ---------- */
+.awardspage{padding-block:0 clamp(80px,12vw,160px)}
+.agroup{padding-top:clamp(50px,7vw,90px);scroll-margin-top:110px}
+.agroup[hidden]{display:none}
+.agroup__head{margin-bottom:28px}
+.agroup__head .eyebrow{margin-bottom:12px}
+.agroup__title{font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.9;font-size:clamp(2.6rem,5.4vw,5rem)}
+.agroup__sub{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(1.6rem,2.6vw,2.2rem);margin:34px 0 16px;color:var(--lime)}
+.agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:16px}
+.award{--c:var(--lime);position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;min-height:200px;padding:22px;border:1px solid var(--line);border-radius:22px;background:var(--ink2);transition:translate .6s var(--ease),border-color .4s}
+.award[data-accent=violet]{--c:var(--ice)}
+.award[data-accent=fire]{--c:var(--fire)}
+.award::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(120% 80% at 100% 0%,color-mix(in srgb,var(--c) 30%,transparent),transparent 60%),linear-gradient(160deg,var(--ink3),var(--ink2))}
+.award:hover{translate:0 -6px;border-color:var(--c)}
+.award__tag{align-self:flex-start;margin-bottom:34px;background:var(--c);color:var(--ink);padding:5px 12px;border-radius:99px;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.award__name{margin-top:auto;font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.95;font-size:clamp(1.9rem,2.6vw,2.5rem);text-wrap:balance}
+.award__title{margin-top:8px;color:var(--mute);font-size:.88rem}
+.award--mvp,.award--champ{background:var(--lime);border-color:var(--lime);color:var(--ink)}
+.award--mvp::before,.award--champ::before{display:none}
+.award--mvp .award__tag,.award--champ .award__tag{background:var(--ink);color:var(--lime)}
+.award--mvp .award__title,.award--champ .award__title{color:rgba(7,8,13,.75)}
+.award--mvp:hover,.award--champ:hover{border-color:var(--paper)}
+
 /* register */
 .register{background:linear-gradient(180deg,rgba(7,8,13,.5),rgba(7,8,13,.9) 25%)}
 .register .display{margin-bottom:clamp(40px,6vw,80px);max-width:14ch}
