@@ -35,7 +35,7 @@
   <nav class="nav__links" id="navLinks">
     <a href="#about" data-cursor>The Club</a>
     <a href="#programs" data-cursor>Programs</a>
-    <a href="#schedule" data-cursor>Schedule</a>
+    <a href="schedule.html" data-cursor>Schedule</a>
     <a href="roster.html" data-cursor>Roster</a>
     <a href="registration.html" class="nav__cta" data-cursor>Register <span>→</span></a>
   </nav>
@@ -60,7 +60,7 @@
     <p class="hero__lede" data-hero-fade>Flag football built on speed, smarts and sportsmanship. <em>Every kid plays. Every kid shines.</em></p>
     <div class="hero__cta" data-hero-fade>
       <a href="registration.html" class="btn btn--lime" data-magnetic data-cursor="Join">Join the squad <span>→</span></a>
-      <a href="#schedule" class="btn btn--ghost" data-magnetic data-cursor>View schedule</a>
+      <a href="schedule.html" class="btn btn--ghost" data-magnetic data-cursor>View schedule</a>
     </div>
     <div class="hero__scroll" data-hero-fade><span>Scroll</span><i></i></div>
   </div>
@@ -166,118 +166,39 @@
   </div>
 </section>
 
-<!-- SCHEDULE -->
-<section class="schedule section" id="schedule">
-  <div class="wrap">
-    <div class="schedule__head">
-      <div>
-        <p class="eyebrow" data-reveal><i>03</i> Spring 2027 Season</p>
-        <h2 class="display split" data-split>Game <em>day</em> is every Saturday.</h2>
+<!-- SCHEDULE CTA (full per-division schedules live on schedule.html) -->
+<section class="schedcta section" id="schedule">
+  <div class="wrap schedcta__grid">
+    <div>
+      <p class="eyebrow" data-reveal><i>03</i> Spring 2027 Season</p>
+      <h2 class="display split" data-split>Game <em>day</em> is every Saturday.</h2>
+      <p class="schedcta__copy" data-reveal>Ten Saturdays, six divisions. Find your age group's full schedule: home and away games, kickoff times, fields and playoff dates.</p>
+      <div class="schedcta__btns" data-reveal>
+        <a href="schedule.html" class="btn btn--lime btn--lg" data-magnetic data-cursor="Go">View the schedule <span>→</span></a>
       </div>
-      <div class="next" data-reveal>
-        <span class="next__label"><i class="dot"></i> Kickoff countdown</span>
-        <div class="next__timer" id="countdown" aria-live="off">
-          <div><b id="cdD">00</b><small>Days</small></div>
-          <div><b id="cdH">00</b><small>Hrs</small></div>
-          <div><b id="cdM">00</b><small>Min</small></div>
-          <div><b id="cdS">00</b><small>Sec</small></div>
+      <div class="schedcta__divs" data-reveal>
+        <span>Jump to your division</span>
+        <div>
+          <a class="chip" href="schedule.html#6u" data-cursor>6U</a>
+          <a class="chip" href="schedule.html#8u" data-cursor>8U</a>
+          <a class="chip" href="schedule.html#10u" data-cursor>10U</a>
+          <a class="chip" href="schedule.html#12u" data-cursor>12U</a>
+          <a class="chip" href="schedule.html#14u" data-cursor>14U</a>
+          <a class="chip" href="schedule.html#hs" data-cursor>HS Girls</a>
         </div>
-        <span class="next__vs" id="nextVs"></span>
       </div>
     </div>
-
-    <div class="filters" id="gameFilters" role="tablist" data-reveal>
-      <button class="chip is-on" data-filter="all" data-cursor>All games</button>
-      <button class="chip" data-filter="home" data-cursor>Home</button>
-      <button class="chip" data-filter="away" data-cursor>Away</button>
-      <button class="chip" data-filter="playoff" data-cursor>Playoffs</button>
+    <div class="next schedcta__next" data-reveal>
+      <span class="next__label"><i class="dot"></i> Season kickoff countdown</span>
+      <!-- data-start = the season opener (ISO datetime) -->
+      <div class="next__timer" id="countdown" data-start="2027-03-06T09:00:00" aria-live="off">
+        <div><b id="cdD">00</b><small>Days</small></div>
+        <div><b id="cdH">00</b><small>Hrs</small></div>
+        <div><b id="cdM">00</b><small>Min</small></div>
+        <div><b id="cdS">00</b><small>Sec</small></div>
+      </div>
+      <span class="next__vs" id="nextVs">Season opener · Sat, Mar 6</span>
     </div>
-
-    <ol class="games" id="games">
-      <!-- LOOP: one <li class="game"> per game. data-loc = home | away | playoff. data-start = ISO datetime (drives the countdown). -->
-      <li class="game" data-loc="home" data-start="2027-03-06T10:00:00" data-cursor>
-        <div class="game__date"><small>Sat</small>Mar 6</div>
-        <div class="game__opp"><small>WK 01</small><span class="game__vs">vs </span><span class="game__team">Harbor Hawks</span></div>
-        <span class="game__loc is-home">Home</span>
-        <span class="game__meta time">10:00 AM</span>
-        <span class="game__meta fld">Field 3</span>
-        <span class="game__arrow" aria-hidden="true">↗</span>
-      </li>
-      <li class="game" data-loc="away" data-start="2027-03-13T10:00:00" data-cursor>
-        <div class="game__date"><small>Sat</small>Mar 13</div>
-        <div class="game__opp"><small>WK 02</small><span class="game__vs">@ </span><span class="game__team">Iron Wolves</span></div>
-        <span class="game__loc is-away">Away</span>
-        <span class="game__meta time">10:00 AM</span>
-        <span class="game__meta fld">Wolfpack Park</span>
-        <span class="game__arrow" aria-hidden="true">↗</span>
-      </li>
-      <li class="game" data-loc="home" data-start="2027-03-20T11:30:00" data-cursor>
-        <div class="game__date"><small>Sat</small>Mar 20</div>
-        <div class="game__opp"><small>WK 03</small><span class="game__vs">vs </span><span class="game__team">Summit Storm</span></div>
-        <span class="game__loc is-home">Home</span>
-        <span class="game__meta time">11:30 AM</span>
-        <span class="game__meta fld">Field 4</span>
-        <span class="game__arrow" aria-hidden="true">↗</span>
-      </li>
-      <li class="game" data-loc="away" data-start="2027-03-27T09:00:00" data-cursor>
-        <div class="game__date"><small>Sat</small>Mar 27</div>
-        <div class="game__opp"><small>WK 04</small><span class="game__vs">@ </span><span class="game__team">Capital Cobras</span></div>
-        <span class="game__loc is-away">Away</span>
-        <span class="game__meta time">9:00 AM</span>
-        <span class="game__meta fld">Statehouse Turf</span>
-        <span class="game__arrow" aria-hidden="true">↗</span>
-      </li>
-      <li class="game" data-loc="home" data-start="2027-04-03T10:00:00" data-cursor>
-        <div class="game__date"><small>Sat</small>Apr 3</div>
-        <div class="game__opp"><small>WK 05</small><span class="game__vs">vs </span><span class="game__team">Redline Rush</span></div>
-        <span class="game__loc is-home">Home</span>
-        <span class="game__meta time">10:00 AM</span>
-        <span class="game__meta fld">Field 3</span>
-        <span class="game__arrow" aria-hidden="true">↗</span>
-      </li>
-      <li class="game" data-loc="away" data-start="2027-04-10T13:00:00" data-cursor>
-        <div class="game__date"><small>Sat</small>Apr 10</div>
-        <div class="game__opp"><small>WK 06</small><span class="game__vs">@ </span><span class="game__team">Coastal Kings</span></div>
-        <span class="game__loc is-away">Away</span>
-        <span class="game__meta time">1:00 PM</span>
-        <span class="game__meta fld">Bayfront Complex</span>
-        <span class="game__arrow" aria-hidden="true">↗</span>
-      </li>
-      <li class="game" data-loc="home" data-start="2027-04-17T10:00:00" data-cursor>
-        <div class="game__date"><small>Sat</small>Apr 17</div>
-        <div class="game__opp"><small>WK 07</small><span class="game__vs">vs </span><span class="game__team">Midtown Mustangs</span></div>
-        <span class="game__loc is-home">Home</span>
-        <span class="game__meta time">10:00 AM</span>
-        <span class="game__meta fld">Field 3</span>
-        <span class="game__arrow" aria-hidden="true">↗</span>
-      </li>
-      <li class="game" data-loc="away" data-start="2027-04-24T10:00:00" data-cursor>
-        <div class="game__date"><small>Sat</small>Apr 24</div>
-        <div class="game__opp"><small>WK 08</small><span class="game__vs">@ </span><span class="game__team">Thunder Ridge</span></div>
-        <span class="game__loc is-away">Away</span>
-        <span class="game__meta time">10:00 AM</span>
-        <span class="game__meta fld">Ridge Stadium</span>
-        <span class="game__arrow" aria-hidden="true">↗</span>
-      </li>
-      <li class="game" data-loc="playoff" data-start="2027-05-01T12:00:00" data-cursor>
-        <div class="game__date"><small>Sat</small>May 1</div>
-        <div class="game__opp"><small>WK 09</small><span class="game__vs"></span><span class="game__team">Semifinal · TBD</span></div>
-        <span class="game__loc is-playoff">Playoff</span>
-        <span class="game__meta time">12:00 PM</span>
-        <span class="game__meta fld">Riverside Main</span>
-        <span class="game__arrow" aria-hidden="true">↗</span>
-      </li>
-      <li class="game" data-loc="playoff" data-start="2027-05-08T14:00:00" data-cursor>
-        <div class="game__date"><small>Sat</small>May 8</div>
-        <div class="game__opp"><small>WK 10</small><span class="game__vs"></span><span class="game__team">Diamond Bowl</span></div>
-        <span class="game__loc is-playoff">Playoff</span>
-        <span class="game__meta time">2:00 PM</span>
-        <span class="game__meta fld">Riverside Main</span>
-        <span class="game__arrow" aria-hidden="true">↗</span>
-      </li>
-      <!-- /LOOP -->
-    </ol>
-    <p class="schedule__note" data-reveal>All games at 10:00 AM unless noted. Weather updates post to the parent app by 7 AM. Bring water, a smile, and a mouthguard.</p>
   </div>
 </section>
 
@@ -373,7 +294,7 @@
       </div>
       <div>
         <h4>Navigate</h4>
-        <p><a href="#about" data-cursor>Club</a> · <a href="#programs" data-cursor>Programs</a> · <a href="#schedule" data-cursor>Schedule</a> · <a href="roster.html" data-cursor>Roster</a> · <a href="registration.html" data-cursor>Register</a></p>
+        <p><a href="#about" data-cursor>Club</a> · <a href="#programs" data-cursor>Programs</a> · <a href="schedule.html" data-cursor>Schedule</a> · <a href="roster.html" data-cursor>Roster</a> · <a href="registration.html" data-cursor>Register</a></p>
       </div>
     </div>
     <div class="footer__legal">
