@@ -129,34 +129,67 @@
     } });
   }
 
-  /* ---------------- SCHEDULE: COUNTDOWN + FILTER ---------------- */
-  if (gamesEl) {
-  const gameEls = $$('.game[data-start]');
-  const nextEl = gameEls.find(g => new Date(g.dataset.start) > new Date()) || gameEls[0];
-  const target = nextEl ? new Date(nextEl.dataset.start) : new Date();
-  if (nextEl) {
-    const when = target.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-    $('#nextVs').textContent = `${$('.game__vs', nextEl).textContent.trim() || 'vs'} ${$('.game__team', nextEl).textContent} · ${when}, ${$('.time', nextEl).textContent}`;
-  }
+  /* ---------------- SCHEDULE: COUNTDOWN + DIVISION / LOCATION FILTER ---------------- */
+  // Home: #countdown carries data-start (season opener). Schedule page: the
+  // countdown follows the selected division's next game.
+  const cd = $('#countdown');
+  let target = cd && cd.dataset.start ? new Date(cd.dataset.start) : null;
   const pad = n => String(n).padStart(2, '0');
   const setN = (el, v) => { if (el.textContent !== v) el.textContent = v; };
   function count() {
+    if (!target) return;
     let s = Math.max(0, Math.floor((target - new Date()) / 1000));
     setN($('#cdD'), pad(Math.floor(s / 86400))); s %= 86400;
     setN($('#cdH'), pad(Math.floor(s / 3600))); s %= 3600;
     setN($('#cdM'), pad(Math.floor(s / 60)));
     setN($('#cdS'), pad(s % 60));
   }
-  count(); setInterval(count, 1000);
+  if (cd) { count(); setInterval(count, 1000); }
 
-  const gameChips = $$('#gameFilters .chip');
-  gameChips.forEach(chip => chip.addEventListener('click', () => {
-    gameChips.forEach(c => c.classList.toggle('is-on', c === chip));
-    const f = chip.dataset.filter;
-    $$('.game').forEach(g => { g.hidden = !(f === 'all' || g.dataset.loc === f); g.style.display = g.hidden ? 'none' : ''; });
-    revealGames();
-    ScrollTrigger.refresh();
-  }));
+  if (gamesEl) {
+    const games = $$('.game', gamesEl), divChips = $$('#divFilters .chip'), locChips = $$('#locFilters .chip');
+    const validDiv = d => divChips.some(c => c.dataset.filter === d);
+    const fromHash = () => { const h = location.hash.slice(1).toLowerCase(); return validDiv(h) ? h : divChips[0].dataset.filter; };
+    let div = fromHash(), loc = 'all';
+
+    const render = () => {
+      let shown = 0, total = 0;
+      games.forEach(g => {
+        const inDiv = g.dataset.div === div, on = inDiv && (loc === 'all' || g.dataset.loc === loc);
+        g.hidden = !on; g.style.display = on ? '' : 'none';
+        if (inDiv) total++;
+        if (on) shown++;
+      });
+      [[divChips, div], [locChips, loc]].forEach(([chips, cur]) => chips.forEach(c => {
+        const on = c.dataset.filter === cur;
+        c.classList.toggle('is-on', on); c.setAttribute('aria-pressed', on);
+      }));
+      const name = $(`#divFilters .chip[data-filter="${div}"]`).textContent;
+      $('#schedTitle').textContent = `${name} schedule`;
+      $('#schedCount').textContent = shown === total ? `${total} games` : `${shown} of ${total} games`;
+      const rl = $('#schedRoster'); rl.href = `roster.html#${div}`; rl.textContent = `View ${name} roster →`;
+
+      // countdown: this division's next game (or its opener if the season is over)
+      const mine = games.filter(g => g.dataset.div === div);
+      const nextEl = mine.find(g => new Date(g.dataset.start) > new Date()) || mine[0];
+      if (nextEl) {
+        target = new Date(nextEl.dataset.start);
+        const when = target.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        const vs = $('.game__vs', nextEl).textContent.trim();
+        $('#nextVs').textContent = `${vs ? vs + ' ' : ''}${$('.game__team', nextEl).textContent} · ${when}, ${$('.time', nextEl).textContent}`;
+        count();
+      }
+    };
+    const refresh = () => { render(); revealGames(); ScrollTrigger.refresh(); };
+
+    divChips.forEach(c => c.addEventListener('click', () => {
+      div = c.dataset.filter;
+      history.replaceState(null, '', '#' + div);
+      refresh();
+    }));
+    locChips.forEach(c => c.addEventListener('click', () => { loc = c.dataset.filter; refresh(); }));
+    addEventListener('hashchange', () => { div = fromHash(); refresh(); });
+    render();
   }
 
   /* ---------------- ROSTER PAGE: DIVISION FILTER ---------------- */

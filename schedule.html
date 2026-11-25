@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Schedule — Diamond Elite Youth Flag Football</title>
+<meta name="description" content="Diamond Elite Spring 2027 schedule for every division, from 6U through High School Girls. Kickoff times, fields, home and away games, and playoffs.">
+<meta name="theme-color" content="#07080d">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<noscript><style>.loader{display:none}.hero__meta,[data-hero-fade]{opacity:1}</style></noscript>
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <img class="loader__gem" src="assets/favicon.svg" alt="">
+    <div class="loader__count"><span id="loaderNum">0</span><i>%</i></div>
+    <p>Lacing up the cleats</p>
+  </div>
+</div>
+
+<div class="cursor" id="cursor"><span></span></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Nav -->
+<header class="nav" id="nav">
+  <a href="index.html" class="logo" aria-label="Diamond Elite — home" data-cursor>
+    <img src="assets/DianmondElite_Logo.svg" alt="Diamond Elite">
+  </a>
+  <nav class="nav__links" id="navLinks">
+    <a href="index.html#about" data-cursor>The Club</a>
+    <a href="index.html#programs" data-cursor>Programs</a>
+    <a href="schedule.html" class="is-current" aria-current="page" data-cursor>Schedule</a>
+    <a href="roster.html" data-cursor>Roster</a>
+    <a href="registration.html" class="nav__cta" data-cursor>Register <span>→</span></a>
+  </nav>
+  <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+</header>
+
+<main id="top">
+
+<!-- PAGE HERO -->
+<section class="hero hero--page hero--compact">
+  <div class="hero__meta">
+    <span class="pill"><i class="dot"></i> Spring 2027 season</span>
+    <span class="hero__est">Every Saturday · Mar 6 – May 8</span>
+  </div>
+
+  <h1 class="hero__title" aria-label="Game day">
+    <span class="line line--back"><span class="chars" data-chars>Game</span></span>
+    <span class="line line--front"><span class="chars" data-chars>Day.</span></span>
+  </h1>
+
+  <div class="hero__foot">
+    <p class="hero__lede" data-hero-fade>Pick your division for kickoff times, fields and playoff dates. <em>Ten Saturdays, one season to remember.</em></p>
+    <div class="hero__cta" data-hero-fade>
+      <a href="registration.html" class="btn btn--lime" data-magnetic data-cursor="Join">Join the squad <span>→</span></a>
+      <a href="roster.html" class="btn btn--ghost" data-magnetic data-cursor>View roster</a>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule schedule--page section" id="schedule">
+  <div class="wrap">
+    <div class="rfilters" id="divFilters" role="group" aria-label="Choose a division">
+      <button class="chip is-on" data-filter="6u" aria-pressed="true" data-cursor>6U</button>
+      <button class="chip" data-filter="8u" aria-pressed="false" data-cursor>8U</button>
+      <button class="chip" data-filter="10u" aria-pressed="false" data-cursor>10U</button>
+      <button class="chip" data-filter="12u" aria-pressed="false" data-cursor>12U</button>
+      <button class="chip" data-filter="14u" aria-pressed="false" data-cursor>14U</button>
+      <button class="chip" data-filter="hs" aria-pressed="false" data-cursor>High School Girls</button>
+    </div>
+
+    <div class="schedule__head">
+      <div>
+        <p class="eyebrow"><i>Spring 2027</i> <span id="schedCount" aria-live="polite"></span></p>
+        <h2 class="sched__title" id="schedTitle">6U schedule</h2>
+        <a class="sched__roster" id="schedRoster" href="roster.html#6u" data-cursor>View 6U roster →</a>
+      </div>
+      <div class="next">
+        <span class="next__label"><i class="dot"></i> Next kickoff</span>
+        <div class="next__timer" id="countdown" aria-live="off">
+          <div><b id="cdD">00</b><small>Days</small></div>
+          <div><b id="cdH">00</b><small>Hrs</small></div>
+          <div><b id="cdM">00</b><small>Min</small></div>
+          <div><b id="cdS">00</b><small>Sec</small></div>
+        </div>
+        <span class="next__vs" id="nextVs"></span>
+      </div>
+    </div>
+
+    <div class="filters" id="locFilters" role="group" aria-label="Filter by location">
+      <button class="chip is-on" data-filter="all" aria-pressed="true" data-cursor>All games</button>
+      <button class="chip" data-filter="home" aria-pressed="false" data-cursor>Home</button>
+      <button class="chip" data-filter="away" aria-pressed="false" data-cursor>Away</button>
+      <button class="chip" data-filter="playoff" aria-pressed="false" data-cursor>Playoffs</button>
+    </div>
+
+    <ol class="games" id="games">
+      <!-- LOOP: one <li class="game"> per game, per division.
+           data-div   = 6u | 8u | 10u | 12u | 14u | hs   (drives the division tabs)
+           data-loc   = home | away | playoff            (drives the location chips)
+           data-start = ISO datetime                     (drives the kickoff countdown) -->
+      <li class="game" data-div="6u" data-loc="home" data-start="2027-03-06T09:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 6</div>
+        <div class="game__opp"><small>WK 01</small><span class="game__vs">vs </span><span class="game__team">Harbor Hawks</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">9:00 AM</span>
+        <span class="game__meta fld">Field 3</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="6u" data-loc="away" data-start="2027-03-13T09:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 13</div>
+        <div class="game__opp"><small>WK 02</small><span class="game__vs">@ </span><span class="game__team">Iron Wolves</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">9:00 AM</span>
+        <span class="game__meta fld">Wolfpack Park</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="6u" data-loc="home" data-start="2027-03-20T09:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 20</div>
+        <div class="game__opp"><small>WK 03</small><span class="game__vs">vs </span><span class="game__team">Summit Storm</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">9:00 AM</span>
+        <span class="game__meta fld">Field 3</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="6u" data-loc="away" data-start="2027-03-27T09:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 27</div>
+        <div class="game__opp"><small>WK 04</small><span class="game__vs">@ </span><span class="game__team">Capital Cobras</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">9:00 AM</span>
+        <span class="game__meta fld">Statehouse Turf</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="6u" data-loc="home" data-start="2027-04-03T09:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 3</div>
+        <div class="game__opp"><small>WK 05</small><span class="game__vs">vs </span><span class="game__team">Redline Rush</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">9:00 AM</span>
+        <span class="game__meta fld">Field 3</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="6u" data-loc="away" data-start="2027-04-10T09:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 10</div>
+        <div class="game__opp"><small>WK 06</small><span class="game__vs">@ </span><span class="game__team">Coastal Kings</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">9:00 AM</span>
+        <span class="game__meta fld">Bayfront Complex</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="6u" data-loc="home" data-start="2027-04-17T09:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 17</div>
+        <div class="game__opp"><small>WK 07</small><span class="game__vs">vs </span><span class="game__team">Midtown Mustangs</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">9:00 AM</span>
+        <span class="game__meta fld">Field 3</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="6u" data-loc="away" data-start="2027-04-24T09:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 24</div>
+        <div class="game__opp"><small>WK 08</small><span class="game__vs">@ </span><span class="game__team">Thunder Ridge</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">9:00 AM</span>
+        <span class="game__meta fld">Ridge Stadium</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="6u" data-loc="playoff" data-start="2027-05-01T09:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>May 1</div>
+        <div class="game__opp"><small>WK 09</small><span class="game__vs"></span><span class="game__team">Semifinal · TBD</span></div>
+        <span class="game__loc is-playoff">Playoff</span>
+        <span class="game__meta time">9:00 AM</span>
+        <span class="game__meta fld">Riverside Main</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="6u" data-loc="playoff" data-start="2027-05-08T09:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>May 8</div>
+        <div class="game__opp"><small>WK 10</small><span class="game__vs"></span><span class="game__team">Diamond Bowl</span></div>
+        <span class="game__loc is-playoff">Playoff</span>
+        <span class="game__meta time">9:00 AM</span>
+        <span class="game__meta fld">Riverside Main</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="8u" data-loc="home" data-start="2027-03-06T10:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 6</div>
+        <div class="game__opp"><small>WK 01</small><span class="game__vs">vs </span><span class="game__team">Summit Storm</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">10:00 AM</span>
+        <span class="game__meta fld">Field 3</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="8u" data-loc="away" data-start="2027-03-13T10:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 13</div>
+        <div class="game__opp"><small>WK 02</small><span class="game__vs">@ </span><span class="game__team">Capital Cobras</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">10:00 AM</span>
+        <span class="game__meta fld">Statehouse Turf</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="8u" data-loc="home" data-start="2027-03-20T10:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 20</div>
+        <div class="game__opp"><small>WK 03</small><span class="game__vs">vs </span><span class="game__team">Redline Rush</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">10:00 AM</span>
+        <span class="game__meta fld">Field 3</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="8u" data-loc="away" data-start="2027-03-27T10:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 27</div>
+        <div class="game__opp"><small>WK 04</small><span class="game__vs">@ </span><span class="game__team">Coastal Kings</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">10:00 AM</span>
+        <span class="game__meta fld">Bayfront Complex</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="8u" data-loc="home" data-start="2027-04-03T10:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 3</div>
+        <div class="game__opp"><small>WK 05</small><span class="game__vs">vs </span><span class="game__team">Midtown Mustangs</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">10:00 AM</span>
+        <span class="game__meta fld">Field 3</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="8u" data-loc="away" data-start="2027-04-10T10:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 10</div>
+        <div class="game__opp"><small>WK 06</small><span class="game__vs">@ </span><span class="game__team">Thunder Ridge</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">10:00 AM</span>
+        <span class="game__meta fld">Ridge Stadium</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="8u" data-loc="home" data-start="2027-04-17T10:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 17</div>
+        <div class="game__opp"><small>WK 07</small><span class="game__vs">vs </span><span class="game__team">Harbor Hawks</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">10:00 AM</span>
+        <span class="game__meta fld">Field 3</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="8u" data-loc="away" data-start="2027-04-24T10:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 24</div>
+        <div class="game__opp"><small>WK 08</small><span class="game__vs">@ </span><span class="game__team">Iron Wolves</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">10:00 AM</span>
+        <span class="game__meta fld">Wolfpack Park</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="8u" data-loc="playoff" data-start="2027-05-01T10:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>May 1</div>
+        <div class="game__opp"><small>WK 09</small><span class="game__vs"></span><span class="game__team">Semifinal · TBD</span></div>
+        <span class="game__loc is-playoff">Playoff</span>
+        <span class="game__meta time">10:00 AM</span>
+        <span class="game__meta fld">Riverside Main</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="8u" data-loc="playoff" data-start="2027-05-08T10:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>May 8</div>
+        <div class="game__opp"><small>WK 10</small><span class="game__vs"></span><span class="game__team">Diamond Bowl</span></div>
+        <span class="game__loc is-playoff">Playoff</span>
+        <span class="game__meta time">10:00 AM</span>
+        <span class="game__meta fld">Riverside Main</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="10u" data-loc="home" data-start="2027-03-06T11:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 6</div>
+        <div class="game__opp"><small>WK 01</small><span class="game__vs">vs </span><span class="game__team">Redline Rush</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">11:00 AM</span>
+        <span class="game__meta fld">Field 4</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="10u" data-loc="away" data-start="2027-03-13T11:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 13</div>
+        <div class="game__opp"><small>WK 02</small><span class="game__vs">@ </span><span class="game__team">Coastal Kings</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">11:00 AM</span>
+        <span class="game__meta fld">Bayfront Complex</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="10u" data-loc="home" data-start="2027-03-20T11:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 20</div>
+        <div class="game__opp"><small>WK 03</small><span class="game__vs">vs </span><span class="game__team">Midtown Mustangs</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">11:00 AM</span>
+        <span class="game__meta fld">Field 4</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="10u" data-loc="away" data-start="2027-03-27T11:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 27</div>
+        <div class="game__opp"><small>WK 04</small><span class="game__vs">@ </span><span class="game__team">Thunder Ridge</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">11:00 AM</span>
+        <span class="game__meta fld">Ridge Stadium</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="10u" data-loc="home" data-start="2027-04-03T11:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 3</div>
+        <div class="game__opp"><small>WK 05</small><span class="game__vs">vs </span><span class="game__team">Harbor Hawks</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">11:00 AM</span>
+        <span class="game__meta fld">Field 4</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="10u" data-loc="away" data-start="2027-04-10T11:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 10</div>
+        <div class="game__opp"><small>WK 06</small><span class="game__vs">@ </span><span class="game__team">Iron Wolves</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">11:00 AM</span>
+        <span class="game__meta fld">Wolfpack Park</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="10u" data-loc="home" data-start="2027-04-17T11:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 17</div>
+        <div class="game__opp"><small>WK 07</small><span class="game__vs">vs </span><span class="game__team">Summit Storm</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">11:00 AM</span>
+        <span class="game__meta fld">Field 4</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="10u" data-loc="away" data-start="2027-04-24T11:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 24</div>
+        <div class="game__opp"><small>WK 08</small><span class="game__vs">@ </span><span class="game__team">Capital Cobras</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">11:00 AM</span>
+        <span class="game__meta fld">Statehouse Turf</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="10u" data-loc="playoff" data-start="2027-05-01T11:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>May 1</div>
+        <div class="game__opp"><small>WK 09</small><span class="game__vs"></span><span class="game__team">Semifinal · TBD</span></div>
+        <span class="game__loc is-playoff">Playoff</span>
+        <span class="game__meta time">11:00 AM</span>
+        <span class="game__meta fld">Riverside Main</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="10u" data-loc="playoff" data-start="2027-05-08T11:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>May 8</div>
+        <div class="game__opp"><small>WK 10</small><span class="game__vs"></span><span class="game__team">Diamond Bowl</span></div>
+        <span class="game__loc is-playoff">Playoff</span>
+        <span class="game__meta time">11:00 AM</span>
+        <span class="game__meta fld">Riverside Main</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="12u" data-loc="home" data-start="2027-03-06T12:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 6</div>
+        <div class="game__opp"><small>WK 01</small><span class="game__vs">vs </span><span class="game__team">Midtown Mustangs</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">12:00 PM</span>
+        <span class="game__meta fld">Field 4</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="12u" data-loc="away" data-start="2027-03-13T12:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 13</div>
+        <div class="game__opp"><small>WK 02</small><span class="game__vs">@ </span><span class="game__team">Thunder Ridge</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">12:00 PM</span>
+        <span class="game__meta fld">Ridge Stadium</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="12u" data-loc="home" data-start="2027-03-20T12:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 20</div>
+        <div class="game__opp"><small>WK 03</small><span class="game__vs">vs </span><span class="game__team">Harbor Hawks</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">12:00 PM</span>
+        <span class="game__meta fld">Field 4</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="12u" data-loc="away" data-start="2027-03-27T12:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 27</div>
+        <div class="game__opp"><small>WK 04</small><span class="game__vs">@ </span><span class="game__team">Iron Wolves</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">12:00 PM</span>
+        <span class="game__meta fld">Wolfpack Park</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="12u" data-loc="home" data-start="2027-04-03T12:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 3</div>
+        <div class="game__opp"><small>WK 05</small><span class="game__vs">vs </span><span class="game__team">Summit Storm</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">12:00 PM</span>
+        <span class="game__meta fld">Field 4</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="12u" data-loc="away" data-start="2027-04-10T12:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 10</div>
+        <div class="game__opp"><small>WK 06</small><span class="game__vs">@ </span><span class="game__team">Capital Cobras</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">12:00 PM</span>
+        <span class="game__meta fld">Statehouse Turf</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="12u" data-loc="home" data-start="2027-04-17T12:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 17</div>
+        <div class="game__opp"><small>WK 07</small><span class="game__vs">vs </span><span class="game__team">Redline Rush</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">12:00 PM</span>
+        <span class="game__meta fld">Field 4</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="12u" data-loc="away" data-start="2027-04-24T12:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 24</div>
+        <div class="game__opp"><small>WK 08</small><span class="game__vs">@ </span><span class="game__team">Coastal Kings</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">12:00 PM</span>
+        <span class="game__meta fld">Bayfront Complex</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="12u" data-loc="playoff" data-start="2027-05-01T12:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>May 1</div>
+        <div class="game__opp"><small>WK 09</small><span class="game__vs"></span><span class="game__team">Semifinal · TBD</span></div>
+        <span class="game__loc is-playoff">Playoff</span>
+        <span class="game__meta time">12:00 PM</span>
+        <span class="game__meta fld">Riverside Main</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="12u" data-loc="playoff" data-start="2027-05-08T12:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>May 8</div>
+        <div class="game__opp"><small>WK 10</small><span class="game__vs"></span><span class="game__team">Diamond Bowl</span></div>
+        <span class="game__loc is-playoff">Playoff</span>
+        <span class="game__meta time">12:00 PM</span>
+        <span class="game__meta fld">Riverside Main</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="14u" data-loc="home" data-start="2027-03-06T13:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 6</div>
+        <div class="game__opp"><small>WK 01</small><span class="game__vs">vs </span><span class="game__team">Harbor Hawks</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">1:00 PM</span>
+        <span class="game__meta fld">Field 3</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="14u" data-loc="away" data-start="2027-03-13T13:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 13</div>
+        <div class="game__opp"><small>WK 02</small><span class="game__vs">@ </span><span class="game__team">Iron Wolves</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">1:00 PM</span>
+        <span class="game__meta fld">Wolfpack Park</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="14u" data-loc="home" data-start="2027-03-20T13:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 20</div>
+        <div class="game__opp"><small>WK 03</small><span class="game__vs">vs </span><span class="game__team">Summit Storm</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">1:00 PM</span>
+        <span class="game__meta fld">Field 3</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="14u" data-loc="away" data-start="2027-03-27T13:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 27</div>
+        <div class="game__opp"><small>WK 04</small><span class="game__vs">@ </span><span class="game__team">Capital Cobras</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">1:00 PM</span>
+        <span class="game__meta fld">Statehouse Turf</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="14u" data-loc="home" data-start="2027-04-03T13:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 3</div>
+        <div class="game__opp"><small>WK 05</small><span class="game__vs">vs </span><span class="game__team">Redline Rush</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">1:00 PM</span>
+        <span class="game__meta fld">Field 3</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="14u" data-loc="away" data-start="2027-04-10T13:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 10</div>
+        <div class="game__opp"><small>WK 06</small><span class="game__vs">@ </span><span class="game__team">Coastal Kings</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">1:00 PM</span>
+        <span class="game__meta fld">Bayfront Complex</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="14u" data-loc="home" data-start="2027-04-17T13:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 17</div>
+        <div class="game__opp"><small>WK 07</small><span class="game__vs">vs </span><span class="game__team">Midtown Mustangs</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">1:00 PM</span>
+        <span class="game__meta fld">Field 3</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="14u" data-loc="away" data-start="2027-04-24T13:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 24</div>
+        <div class="game__opp"><small>WK 08</small><span class="game__vs">@ </span><span class="game__team">Thunder Ridge</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">1:00 PM</span>
+        <span class="game__meta fld">Ridge Stadium</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="14u" data-loc="playoff" data-start="2027-05-01T13:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>May 1</div>
+        <div class="game__opp"><small>WK 09</small><span class="game__vs"></span><span class="game__team">Semifinal · TBD</span></div>
+        <span class="game__loc is-playoff">Playoff</span>
+        <span class="game__meta time">1:00 PM</span>
+        <span class="game__meta fld">Riverside Main</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="14u" data-loc="playoff" data-start="2027-05-08T13:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>May 8</div>
+        <div class="game__opp"><small>WK 10</small><span class="game__vs"></span><span class="game__team">Diamond Bowl</span></div>
+        <span class="game__loc is-playoff">Playoff</span>
+        <span class="game__meta time">1:00 PM</span>
+        <span class="game__meta fld">Riverside Main</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="hs" data-loc="home" data-start="2027-03-06T14:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 6</div>
+        <div class="game__opp"><small>WK 01</small><span class="game__vs">vs </span><span class="game__team">Summit Storm</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">2:00 PM</span>
+        <span class="game__meta fld">Riverside Main</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="hs" data-loc="away" data-start="2027-03-13T14:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 13</div>
+        <div class="game__opp"><small>WK 02</small><span class="game__vs">@ </span><span class="game__team">Capital Cobras</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">2:00 PM</span>
+        <span class="game__meta fld">Statehouse Turf</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="hs" data-loc="home" data-start="2027-03-20T14:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 20</div>
+        <div class="game__opp"><small>WK 03</small><span class="game__vs">vs </span><span class="game__team">Redline Rush</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">2:00 PM</span>
+        <span class="game__meta fld">Riverside Main</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="hs" data-loc="away" data-start="2027-03-27T14:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Mar 27</div>
+        <div class="game__opp"><small>WK 04</small><span class="game__vs">@ </span><span class="game__team">Coastal Kings</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">2:00 PM</span>
+        <span class="game__meta fld">Bayfront Complex</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="hs" data-loc="home" data-start="2027-04-03T14:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 3</div>
+        <div class="game__opp"><small>WK 05</small><span class="game__vs">vs </span><span class="game__team">Midtown Mustangs</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">2:00 PM</span>
+        <span class="game__meta fld">Riverside Main</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="hs" data-loc="away" data-start="2027-04-10T14:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 10</div>
+        <div class="game__opp"><small>WK 06</small><span class="game__vs">@ </span><span class="game__team">Thunder Ridge</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">2:00 PM</span>
+        <span class="game__meta fld">Ridge Stadium</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="hs" data-loc="home" data-start="2027-04-17T14:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 17</div>
+        <div class="game__opp"><small>WK 07</small><span class="game__vs">vs </span><span class="game__team">Harbor Hawks</span></div>
+        <span class="game__loc is-home">Home</span>
+        <span class="game__meta time">2:00 PM</span>
+        <span class="game__meta fld">Riverside Main</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="hs" data-loc="away" data-start="2027-04-24T14:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>Apr 24</div>
+        <div class="game__opp"><small>WK 08</small><span class="game__vs">@ </span><span class="game__team">Iron Wolves</span></div>
+        <span class="game__loc is-away">Away</span>
+        <span class="game__meta time">2:00 PM</span>
+        <span class="game__meta fld">Wolfpack Park</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="hs" data-loc="playoff" data-start="2027-05-01T14:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>May 1</div>
+        <div class="game__opp"><small>WK 09</small><span class="game__vs"></span><span class="game__team">Semifinal · TBD</span></div>
+        <span class="game__loc is-playoff">Playoff</span>
+        <span class="game__meta time">2:00 PM</span>
+        <span class="game__meta fld">Riverside Main</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <li class="game" data-div="hs" data-loc="playoff" data-start="2027-05-08T14:00:00" data-cursor>
+        <div class="game__date"><small>Sat</small>May 8</div>
+        <div class="game__opp"><small>WK 10</small><span class="game__vs"></span><span class="game__team">Diamond Bowl</span></div>
+        <span class="game__loc is-playoff">Playoff</span>
+        <span class="game__meta time">2:00 PM</span>
+        <span class="game__meta fld">Riverside Main</span>
+        <span class="game__arrow" aria-hidden="true">↗</span>
+      </li>
+      <!-- /LOOP -->
+    </ol>
+    <p class="schedule__note">Kickoff times vary by division. Weather updates post to the parent app by 7 AM. Bring water, a smile, and a mouthguard.</p>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__big" data-footer-big>
+      <span>We got</span>
+      <span class="o">next.</span>
+    </div>
+    <div class="footer__grid">
+      <div>
+        <img class="footer__icon" src="assets/DianmondElite_Icon.svg" alt="Diamond Elite">
+        <h4>Home field</h4>
+        <p>Riverside Sports Complex<br>1200 Marigold Way, Fields 3 &amp; 4</p>
+      </div>
+      <div>
+        <h4>Say hello</h4>
+        <p><a href="#" data-cursor>hello@diamondelite.example</a><br><a href="#" data-cursor>(555) 014-2027</a></p>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <p><a href="#" data-cursor>Instagram</a> · <a href="#" data-cursor>TikTok</a> · <a href="#" data-cursor>YouTube</a></p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <p><a href="index.html#about" data-cursor>Club</a> · <a href="index.html#programs" data-cursor>Programs</a> · <a href="schedule.html" data-cursor>Schedule</a> · <a href="roster.html" data-cursor>Roster</a> · <a href="registration.html" data-cursor>Register</a></p>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <span>© 2027 Diamond Elite Youth Flag Football. A fictional club.</span>
+      <a href="#top" data-cursor>Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+<script src="js/gsap-fallback.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -225,6 +225,27 @@ em{font-style:normal}
 .divt:hover b{color:var(--ink)}
 .divt span{font-size:.84rem;font-weight:500}
 
+/* ---------- schedule cta (home) ---------- */
+.schedcta{background:linear-gradient(180deg,rgba(7,8,13,0),rgba(7,8,13,.78) 18%,rgba(7,8,13,.78) 100%)}
+.schedcta__grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(30px,6vw,100px);align-items:center}
+.schedcta .display{margin-bottom:26px;max-width:12ch}
+.schedcta__copy{color:var(--mute);font-size:clamp(1.05rem,1.4vw,1.3rem);max-width:42ch;margin-bottom:32px}
+.schedcta__divs{margin-top:36px}
+.schedcta__divs>span{display:block;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.schedcta__divs div{display:flex;flex-wrap:wrap;gap:8px}
+.schedcta__next{padding:clamp(24px,3vw,40px);border-radius:28px}
+.schedcta__next .next__timer{gap:clamp(12px,2vw,26px);margin:18px 0 14px}
+.schedcta__next .next__timer b{font-size:clamp(3.4rem,6.4vw,6rem)}
+.schedcta__next .next__vs{font-size:1rem}
+
+/* ---------- schedule page ---------- */
+.schedule--page{background:none;padding-block:0 clamp(80px,12vw,160px)}
+.schedule--page .schedule__head{margin-block:clamp(28px,4vw,50px)}
+.schedule--page .eyebrow{margin-bottom:14px}
+.sched__title{font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.9;font-size:clamp(2.8rem,6vw,5.6rem)}
+.sched__roster{display:inline-block;margin-top:14px;color:var(--lime);font-size:.9rem;letter-spacing:.06em}
+.sched__roster:hover{text-decoration:underline;text-underline-offset:4px}
+
 /* ---------- roster teaser (home) ---------- */
 .rteaser{background:linear-gradient(180deg,rgba(7,8,13,.78),rgba(7,8,13,.5));overflow:hidden}
 .rteaser__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:center}
@@ -363,6 +384,7 @@ em{font-style:normal}
   .summary{position:static;max-width:520px}
 }
 @media (max-width:900px){
+  .schedcta__grid{grid-template-columns:1fr}
   .regcta__grid{grid-template-columns:1fr}
   .programs__grid,.rteaser__grid,.voices__grid{grid-template-columns:1fr}
   .quote--feature{grid-row:auto}
