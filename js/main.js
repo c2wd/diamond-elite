@@ -219,6 +219,33 @@
     addEventListener('hashchange', () => { show(fromHash()); animate(); });
   }
 
+  /* ---------------- AWARDS PAGE: CATEGORY FILTER ---------------- */
+  const agroups = $$('.agroup');
+  if (agroups.length) {
+    const chips = $$('#awardFilters .chip'), countEl = $('#acount');
+    const valid = f => chips.some(c => c.dataset.filter === f);
+    const fromHash = () => { const h = location.hash.slice(1).toLowerCase(); return valid(h) ? h : 'all'; };
+    const show = f => {
+      agroups.forEach(g => { g.hidden = !(f === 'all' || g.dataset.cat === f); });
+      chips.forEach(c => { const on = c.dataset.filter === f; c.classList.toggle('is-on', on); c.setAttribute('aria-pressed', on); });
+      const n = $$('.agroup:not([hidden]) .award').length;
+      const label = f === 'all' ? 'all categories' : $(`#awardFilters .chip[data-filter="${f}"]`).textContent;
+      countEl.textContent = `Showing ${n} ${n === 1 ? 'honor' : 'honors'} \u00b7 ${label}`;
+    };
+    const animate = () => gsap.fromTo($$('.agroup:not([hidden]) .award'), { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: .7, ease: 'power3.out', stagger: .04, overwrite: true });
+    show(fromHash());
+    gsap.set($$('.award'), { opacity: 0 });
+    ScrollTrigger.create({ trigger: '#awards', start: 'top 90%', once: true, onEnter: animate });
+    chips.forEach(chip => chip.addEventListener('click', () => {
+      const f = chip.dataset.filter;
+      show(f);
+      history.replaceState(null, '', f === 'all' ? location.pathname + location.search : '#' + f);
+      animate();
+      ScrollTrigger.refresh();
+    }));
+    addEventListener('hashchange', () => { show(fromHash()); animate(); });
+  }
+
   /* ---------------- REGISTRATION ---------------- */
   const form = $('#regForm');
   if (form) {
