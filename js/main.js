@@ -121,7 +121,7 @@
   /* ---------------- MARQUEE ---------------- */
   const mq = $('#marqueeTrack');
   if (mq) {
-    const mqTween = gsap.to(mq, { xPercent: -50, ease: 'none', duration: 22, repeat: -1 });
+    const mqTween = gsap.to(mq, { xPercent: -50, ease: 'none', duration: 44, repeat: -1 });
     ScrollTrigger.create({ onUpdate: s => {
       const v = Math.min(Math.abs(s.getVelocity()) / 400, 6);
       gsap.to(mqTween, { timeScale: (s.direction === 1 ? 1 : -1) * (1 + v), duration: .3, overwrite: true });
