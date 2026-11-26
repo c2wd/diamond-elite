@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Diamond Elite Youth Flag Football</title>
+<meta name="description" content="Contact Diamond Elite Youth Flag Football. Send us a message and find answers to common questions about registration, equipment, schedules and safety.">
+<meta name="theme-color" content="#07080d">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<noscript><style>.loader{display:none}.hero__meta,[data-hero-fade]{opacity:1}</style></noscript>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I register my child?", "acceptedAnswer": {"@type": "Answer", "text": "Registration is completed online via our secure portal. Select your age group and team preference, then pay the registration fee before the deadline to secure your spot."}}, {"@type": "Question", "name": "What equipment is required?", "acceptedAnswer": {"@type": "Answer", "text": "Athletes are responsible for bringing a mouthguard, cleats. The league supplies all extra tools, like jerseys and flags for game days."}}, {"@type": "Question", "name": "When are the games scheduled?", "acceptedAnswer": {"@type": "Answer", "text": "Our schedule is released in early June. Games typically run from late August through early October, with specific dates posted on our league website and social media."}}, {"@type": "Question", "name": "How can I get my child in the league?", "acceptedAnswer": {"@type": "Answer", "text": "Our league is open to all youth ages 6-18. We encourage parents to reach out to our coaches to discuss their child’s skill level and potential for the team."}}, {"@type": "Question", "name": "Is flag football safe for younger players?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Flag football is non-tackle, and our certified coaches teach proper technique, sportsmanship, and safety at every practice and game."}}]}</script>
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <img class="loader__gem" src="assets/favicon.svg" alt="">
+    <div class="loader__count"><span id="loaderNum">0</span><i>%</i></div>
+    <p>Lacing up the cleats</p>
+  </div>
+</div>
+
+<div class="cursor" id="cursor"><span></span></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Nav -->
+<header class="nav" id="nav">
+  <a href="index.html" class="logo" aria-label="Diamond Elite — home" data-cursor>
+    <img src="assets/DianmondElite_Logo.svg" alt="Diamond Elite">
+  </a>
+  <nav class="nav__links" id="navLinks">
+    <a href="index.html#about" data-cursor>The Club</a>
+    <a href="index.html#programs" data-cursor>Programs</a>
+    <a href="schedule.html" data-cursor>Schedule</a>
+    <a href="roster.html" data-cursor>Roster</a>
+    <a href="awards.html" data-cursor>Awards</a>
+    <a href="news.html" data-cursor>News</a>
+    <a href="contact.html" class="is-current" aria-current="page" data-cursor>Contact</a>
+    <a href="registration.html" class="nav__cta" data-cursor>Register <span>→</span></a>
+  </nav>
+  <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+</header>
+
+<main id="top">
+
+<!-- PAGE HERO -->
+<section class="hero hero--page hero--compact">
+  <div class="hero__meta">
+    <span class="pill"><i class="dot"></i> We'd love to hear from you</span>
+    <span class="hero__est">Questions · Sponsors · Tryouts</span>
+  </div>
+
+  <h1 class="hero__title" aria-label="Get in touch">
+    <span class="line line--back"><span class="chars" data-chars>Get in</span></span>
+    <span class="line line--front"><span class="chars" data-chars>Touch.</span></span>
+  </h1>
+
+  <div class="hero__foot">
+    <p class="hero__lede" data-hero-fade>Questions about registration, sponsorships or the season? <em>Send us a note, or check the FAQs below for quick answers.</em></p>
+    <div class="hero__cta" data-hero-fade>
+      <a href="#message" class="btn btn--lime" data-magnetic data-cursor="Write">Send a message <span>↓</span></a>
+      <a href="#faq" class="btn btn--ghost" data-magnetic data-cursor>Read the FAQs</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contactpage section" id="message">
+  <div class="wrap contact__grid">
+    <!-- CONTACT FORM: opens the visitor's email app with the message pre-filled (no backend yet).
+         Replace this <form> with the sports-management plugin's / Gravity Forms / Fluent Forms contact form when ready. -->
+    <form class="form" id="contactForm" novalidate>
+      <fieldset class="fields">
+        <legend>Send us a message</legend>
+        <div class="field"><input id="cName" name="name" placeholder=" " required autocomplete="name"><label for="cName">Your name</label></div>
+        <div class="field"><input id="cEmail" name="email" type="email" placeholder=" " required autocomplete="email"><label for="cEmail">Email</label></div>
+        <div class="field field--full">
+          <select id="cTopic" name="topic">
+            <option>Registration</option><option>Travel League tryouts</option><option>Sponsorship</option><option>Coaching &amp; volunteering</option><option>General question</option>
+          </select><label for="cTopic" class="static">Topic</label>
+        </div>
+        <div class="field field--full"><textarea id="cMsg" name="message" rows="5" placeholder=" " required></textarea><label for="cMsg">How can we help?</label></div>
+      </fieldset>
+      <button type="submit" class="btn btn--lime btn--xl" data-magnetic data-cursor="Send">Send message <span>→</span></button>
+      <p class="form__err" id="cErr" role="alert"></p>
+      <p class="form__ok" id="cOk" role="status" hidden>Your email app should open with your message ready to send. If nothing opens, email us directly at <a href="mailto:diamondelite2026@gmail.com">diamondelite2026@gmail.com</a>.</p>
+    </form>
+
+    <aside class="cinfo" data-reveal>
+      <h3>Prefer email?</h3>
+      <a class="cinfo__mail" href="mailto:diamondelite2026@gmail.com" data-cursor>diamondelite2026@gmail.com</a>
+      <ul class="cinfo__list">
+        <li><b>Registration &amp; tryouts</b><span>Divisions, the Rec League and Travel League tryouts.</span></li>
+        <li><b>Sponsorships</b><span>Put your business on our sidelines.</span></li>
+        <li><b>Coaches &amp; volunteers</b><span>Help us make game day happen.</span></li>
+      </ul>
+      <div class="cinfo__social">
+        <span>Follow along</span>
+        <div>
+          <a class="chip" href="#" data-cursor>Facebook</a>
+          <a class="chip" href="#" data-cursor>Instagram</a>
+          <a class="chip" href="#" data-cursor>TikTok</a>
+          <a class="chip" href="#" data-cursor>YouTube</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faqs section" id="faq">
+  <div class="wrap faqs__grid">
+    <div class="faqs__intro">
+      <p class="eyebrow" data-reveal><i>FAQ</i> Good to know</p>
+      <h2 class="agroup__title" data-reveal>Frequently asked questions</h2>
+      <p data-reveal>Can't find what you're looking for? Send us a message and a coach will get back to you.</p>
+      <a href="registration.html" class="btn btn--lime" data-magnetic data-cursor="Join" data-reveal>Register now <span>→</span></a>
+    </div>
+    <div class="faqs__list" data-reveal>
+      <!-- LOOP: one <details class="faq"> per question. name="faq" makes it an accordion (one open at a time). -->
+        <details class="faq" name="faq">
+          <summary><span>How do I register my child?</span><i aria-hidden="true">+</i></summary>
+          <p>Registration is completed online via our secure portal. Select your age group and team preference, then pay the registration fee before the deadline to secure your spot.</p>
+        </details>
+        <details class="faq" name="faq">
+          <summary><span>What equipment is required?</span><i aria-hidden="true">+</i></summary>
+          <p>Athletes are responsible for bringing a mouthguard, cleats. The league supplies all extra tools, like jerseys and flags for game days.</p>
+        </details>
+        <details class="faq" name="faq">
+          <summary><span>When are the games scheduled?</span><i aria-hidden="true">+</i></summary>
+          <p>Our schedule is released in early June. Games typically run from late August through early October, with specific dates posted on our league website and social media.</p>
+        </details>
+        <details class="faq" name="faq">
+          <summary><span>How can I get my child in the league?</span><i aria-hidden="true">+</i></summary>
+          <p>Our league is open to all youth ages 6-18. We encourage parents to reach out to our coaches to discuss their child’s skill level and potential for the team.</p>
+        </details>
+        <details class="faq" name="faq">
+          <summary><span>Is flag football safe for younger players?</span><i aria-hidden="true">+</i></summary>
+          <p>Yes. Flag football is non-tackle, and our certified coaches teach proper technique, sportsmanship, and safety at every practice and game.</p>
+        </details>
+      <!-- /LOOP -->
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__big" data-footer-big>
+      <span>We got</span>
+      <span class="o">next.</span>
+    </div>
+    <div class="footer__grid">
+      <div>
+        <a href="index.html" class="footer__brand" aria-label="Diamond Elite — home" data-cursor><img class="footer__logo" src="assets/DianmondElite_Logo_black.svg" alt="Diamond Elite"></a>
+      </div>
+      <div>
+        <h4>Say hello</h4>
+        <p><a href="mailto:diamondelite2026@gmail.com" data-cursor>diamondelite2026@gmail.com</a><br><a href="#" data-cursor>(555) 014-2027</a></p>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <p><a href="#" data-cursor>Facebook</a> · <a href="#" data-cursor>Instagram</a> · <a href="#" data-cursor>TikTok</a> · <a href="#" data-cursor>YouTube</a></p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <p><a href="index.html#about" data-cursor>Club</a> · <a href="index.html#programs" data-cursor>Programs</a> · <a href="schedule.html" data-cursor>Schedule</a> · <a href="roster.html" data-cursor>Roster</a> · <a href="awards.html" data-cursor>Awards</a> · <a href="news.html" data-cursor>News</a> · <a href="contact.html" data-cursor>Contact</a> · <a href="registration.html" data-cursor>Register</a></p>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <span>© 2027 Diamond Elite Youth Flag Football.</span>
+      <a href="#top" data-cursor>Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+<script src="js/gsap-fallback.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

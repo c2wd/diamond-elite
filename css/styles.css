@@ -356,6 +356,35 @@ em{font-style:normal}
 .post--feature .post__title{font-size:clamp(2.4rem,4.4vw,4.4rem)}
 .post--feature .post__excerpt{font-size:clamp(1.05rem,1.4vw,1.3rem);max-width:50ch}
 
+/* ---------- contact page ---------- */
+.contactpage{padding-block:clamp(40px,6vw,80px) 0}
+.contact__grid{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(30px,5vw,90px);align-items:start}
+.cinfo{border:1px solid var(--line);border-radius:26px;padding:clamp(24px,3vw,40px);background:rgba(14,16,23,.8)}
+.cinfo h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:2.4rem;line-height:.95;margin-bottom:12px}
+.cinfo__mail{display:inline-block;color:var(--lime);font-size:clamp(1rem,1.4vw,1.2rem);font-weight:600;word-break:break-all}
+.cinfo__mail:hover{text-decoration:underline;text-underline-offset:4px}
+.cinfo__list{margin:26px 0;display:grid;gap:0;border-top:1px solid var(--line)}
+.cinfo__list li{padding:16px 0;border-bottom:1px solid var(--line)}
+.cinfo__list b{display:block;font-weight:600}
+.cinfo__list span{color:var(--mute);font-size:.92rem}
+.cinfo__social>span{display:block;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.cinfo__social div{display:flex;flex-wrap:wrap;gap:8px}
+
+/* ---------- faqs ---------- */
+.faqs{background:linear-gradient(180deg,rgba(7,8,13,0),rgba(7,8,13,.78) 18%,rgba(7,8,13,.78) 100%)}
+.faqs__grid{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(30px,6vw,100px);align-items:start}
+.faqs__intro{position:sticky;top:110px}
+.faqs__intro p:not(.eyebrow){color:var(--mute);margin:22px 0 28px;max-width:34ch}
+.faq{border-bottom:1px solid var(--line)}
+.faq:first-of-type{border-top:1px solid var(--line)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:26px 4px;cursor:pointer;list-style:none;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(1.4rem,2.2vw,2rem);line-height:1.05;transition:color .3s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex:none;font-style:normal;display:grid;place-items:center;width:34px;height:34px;border:1px solid currentColor;border-radius:50%;font-family:var(--body);font-size:1.2rem;font-weight:400;transition:transform .4s var(--ease)}
+.faq summary:hover,.faq[open] summary{color:var(--lime)}
+.faq[open] summary i{transform:rotate(45deg)}
+.faq summary:focus-visible{outline:2px solid var(--ice);outline-offset:2px;border-radius:6px}
+.faq p{padding:0 4px 28px;color:var(--mute);font-size:1.05rem;max-width:60ch}
+
 /* register */
 .register{background:linear-gradient(180deg,rgba(7,8,13,.5),rgba(7,8,13,.9) 25%)}
 .register .display{margin-bottom:clamp(40px,6vw,80px);max-width:14ch}
@@ -385,7 +414,15 @@ em{font-style:normal}
 .field label{position:absolute;left:0;top:26px;color:var(--mute);pointer-events:none;transition:transform .35s var(--ease),color .3s,font-size .3s;transform-origin:left}
 .field input:focus + label,.field input:not(:placeholder-shown) + label,.field label.static{transform:translateY(-22px);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
 .field input:focus + label{color:var(--lime)}
-.field input.bad{border-color:var(--fire)}
+.field input.bad,.field textarea.bad{border-color:var(--fire)}
+.field textarea{width:100%;min-height:150px;resize:vertical;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--paper);font:inherit;font-size:1.1rem;padding:26px 0 10px;outline:0;border-radius:0;transition:border-color .3s}
+.field textarea:focus{border-color:var(--lime)}
+.field textarea:focus + label,.field textarea:not(:placeholder-shown) + label{transform:translateY(-22px);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+.field textarea:focus + label{color:var(--lime)}
+.field--full{grid-column:1/-1}
+.form__ok{color:var(--lime);font-size:.95rem;margin-top:14px}
+.form__ok[hidden]{display:none}
+.form__ok a{text-decoration:underline;text-underline-offset:3px}
 .check{display:flex;align-items:center;gap:12px;font-size:.92rem;color:var(--mute);margin-bottom:26px;position:relative}
 .check input{position:absolute;opacity:0}
 .check span{width:22px;height:22px;border:1px solid var(--line);border-radius:6px;display:grid;place-items:center;flex:none;transition:.3s}
@@ -425,12 +462,19 @@ em{font-style:normal}
 .footer h4{font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;margin-bottom:10px;opacity:.6}
 .footer p{font-weight:500}
 .footer a:hover{text-decoration:underline;text-underline-offset:4px}
-.footer__icon{display:block;height:34px;width:auto;margin-bottom:18px}
+.footer__brand{display:inline-block}
+.footer__logo{display:block;height:clamp(40px,3.6vw,56px);width:auto}
 .footer__legal{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:60px;font-size:.8rem;opacity:.75}
 
 /* responsive */
+@media (min-width:1101px) and (max-width:1280px){
+  .nav__links{gap:clamp(14px,1.7vw,22px);letter-spacing:.1em}
+}
 @media (max-width:1100px){
-  .nav__links{gap:clamp(14px,1.9vw,20px);letter-spacing:.1em}
+  .nav__burger{display:block}
+  .nav__links{position:fixed;inset:0;z-index:-1;background:var(--ink);flex-direction:column;justify-content:center;gap:clamp(10px,2.4vh,26px);font-family:var(--display);font-weight:900;font-size:clamp(2rem,6.2vh,3.2rem);line-height:1.1;letter-spacing:0;opacity:0;pointer-events:none;transition:opacity .4s;overflow-y:auto;padding:80px 0 24px}
+  .nav__links.is-open{opacity:1;pointer-events:auto;color:var(--paper)}
+  .nav__cta{font-size:1.4rem!important;font-family:var(--body)}
   .posts{grid-template-columns:repeat(2,1fr)}
   .divs__list{grid-template-columns:repeat(3,1fr)}
   .game{grid-template-columns:110px 1fr 110px 90px 32px}
@@ -439,6 +483,8 @@ em{font-style:normal}
   .summary{position:static;max-width:520px}
 }
 @media (max-width:900px){
+  .contact__grid,.faqs__grid{grid-template-columns:1fr}
+  .faqs__intro{position:static}
   .post--feature{flex-direction:column}
   .post--feature .post__art{flex:none;height:150px;min-height:0}
   .schedcta__grid{grid-template-columns:1fr}
@@ -447,15 +493,10 @@ em{font-style:normal}
   .quote--feature{grid-row:auto}
   .hero--page .hero__foot{grid-template-columns:1fr}
   .rfilters{top:52px}
-  .nav__burger{display:block}
-  .nav__links{position:fixed;inset:0;z-index:-1;background:var(--ink);flex-direction:column;justify-content:center;gap:26px;font-family:var(--display);font-weight:900;font-size:3.2rem;letter-spacing:0;opacity:0;pointer-events:none;transition:opacity .4s}
-  .nav__links.is-open{opacity:1;pointer-events:auto}
-  .nav__cta{font-size:1.4rem!important;font-family:var(--body)}
   .about__grid,.coaches{grid-template-columns:1fr}
   .coaches__list{grid-template-columns:1fr}
   .hero__foot{grid-template-columns:1fr}
   .hero__scroll{display:none}
-  .nav__links.is-open{color:var(--paper)}
   .divisions{grid-template-columns:1fr 1fr}
   .footer__grid{grid-template-columns:1fr 1fr}
 }
