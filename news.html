@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News — Diamond Elite Youth Flag Football</title>
+<meta name="description" content="News from Diamond Elite Youth Flag Football: game recaps, new sponsors and community outreach.">
+<meta name="theme-color" content="#07080d">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<noscript><style>.loader{display:none}.hero__meta,[data-hero-fade]{opacity:1}</style></noscript>
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <img class="loader__gem" src="assets/favicon.svg" alt="">
+    <div class="loader__count"><span id="loaderNum">0</span><i>%</i></div>
+    <p>Lacing up the cleats</p>
+  </div>
+</div>
+
+<div class="cursor" id="cursor"><span></span></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Nav -->
+<header class="nav" id="nav">
+  <a href="index.html" class="logo" aria-label="Diamond Elite — home" data-cursor>
+    <img src="assets/DianmondElite_Logo.svg" alt="Diamond Elite">
+  </a>
+  <nav class="nav__links" id="navLinks">
+    <a href="index.html#about" data-cursor>The Club</a>
+    <a href="index.html#programs" data-cursor>Programs</a>
+    <a href="schedule.html" data-cursor>Schedule</a>
+    <a href="roster.html" data-cursor>Roster</a>
+    <a href="awards.html" data-cursor>Awards</a>
+    <a href="news.html" class="is-current" aria-current="page" data-cursor>News</a>
+    <a href="registration.html" class="nav__cta" data-cursor>Register <span>→</span></a>
+  </nav>
+  <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+</header>
+
+<main id="top">
+
+<!-- PAGE HERO -->
+<section class="hero hero--page hero--compact">
+  <div class="hero__meta">
+    <span class="pill"><i class="dot"></i> Latest from the club</span>
+    <span class="hero__est">Recaps · Sponsors · Community</span>
+  </div>
+
+  <h1 class="hero__title" aria-label="Team news">
+    <span class="line line--back"><span class="chars" data-chars>Team</span></span>
+    <span class="line line--front"><span class="chars" data-chars>News.</span></span>
+  </h1>
+
+  <div class="hero__foot">
+    <p class="hero__lede" data-hero-fade>Game recaps, sponsor shout-outs and the ways we show up for our community. <em>Stay in the loop.</em></p>
+    <div class="hero__cta" data-hero-fade>
+      <a href="registration.html" class="btn btn--lime" data-magnetic data-cursor="Join">Join the squad <span>→</span></a>
+      <a href="awards.html" class="btn btn--ghost" data-magnetic data-cursor>See the awards</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="newspage section">
+  <div class="wrap">
+    <div class="rfilters" id="newsFilters" role="group" aria-label="Filter news">
+      <button class="chip is-on" data-filter="all" aria-pressed="true" data-cursor>All</button>
+      <button class="chip" data-filter="recaps" aria-pressed="false" data-cursor>Game Recaps</button>
+      <button class="chip" data-filter="sponsors" aria-pressed="false" data-cursor>Sponsors</button>
+      <button class="chip" data-filter="community" aria-pressed="false" data-cursor>Community</button>
+    </div>
+    <p class="rcount" id="ncount" aria-live="polite"></p>
+
+    <div class="posts" id="posts">
+      <!-- LOOP: one <article class="post"> per article.
+           data-cat    = recaps | sponsors | community   (drives the category chips)
+           data-accent = lime | violet | fire
+           The first visible post is automatically shown as the large featured story. -->
+      <article class="post post--feature" data-cat="recaps" data-accent="lime">
+        <div class="post__art" aria-hidden="true"><img src="assets/favicon.svg" alt=""></div>
+        <div class="post__main">
+          <div class="post__meta"><span class="post__tag">Game Recap</span><time>Nov 21, 2026</time><span>2 min read</span></div>
+          <h3 class="post__title">Lady Cowboys Girls Bring Home the WPA Super Bowl</h3>
+          <p class="post__excerpt">A season of early practices and late-game grit came together on championship day.</p>
+          <details class="post__more">
+            <summary>Read the story <i aria-hidden="true">+</i></summary>
+            <div class="post__body">
+            <p>Championship day was everything a season is built for. The Lady Cowboys Girls took the field ready, locked in on the plan their coaches drew up all season and played for each other from the first snap to the final flag pull.</p>
+            <p>Their run to the WPA Super Bowl title was powered by sharp defense, smart routes and a sideline that never stopped cheering. Congratulations to every player, coach and family who made it happen.</p>
+            <p>Want to see where it all started? Browse the Lady Cowboys on the roster page or look back at the full list of 2026 honors.</p>
+            </div>
+          </details>
+        </div>
+      </article>
+      <article class="post" data-cat="community" data-accent="fire">
+        <div class="post__art" aria-hidden="true"><img src="assets/favicon.svg" alt=""></div>
+        <div class="post__main">
+          <div class="post__meta"><span class="post__tag">Community</span><time>Nov 14, 2026</time><span>2 min read</span></div>
+          <h3 class="post__title">Cleats for Cans: Our Fall Food Drive</h3>
+          <p class="post__excerpt">Players and families turned game day into a day of giving.</p>
+          <details class="post__more">
+            <summary>Read the story <i aria-hidden="true">+</i></summary>
+            <div class="post__body">
+            <p>This fall, Diamond Elite teams turned game day into a day of giving. Families dropped canned goods and pantry staples in the donation bins at every home game, and players helped sort and load the donations afterward.</p>
+            <p>Everything collected went to local neighbors who needed it most. Thank you to every family who gave, and to the volunteers who made the drive run smoothly.</p>
+            <p>We believe a team is only as strong as the community behind it, and we plan to make the food drive a Spring 2027 tradition too.</p>
+            </div>
+          </details>
+        </div>
+      </article>
+      <article class="post" data-cat="sponsors" data-accent="violet">
+        <div class="post__art" aria-hidden="true"><img src="assets/favicon.svg" alt=""></div>
+        <div class="post__main">
+          <div class="post__meta"><span class="post__tag">Sponsors</span><time>Nov 7, 2026</time><span>2 min read</span></div>
+          <h3 class="post__title">Welcome to Our New Season Sponsors</h3>
+          <p class="post__excerpt">Local businesses are lining up behind the squad for 2027.</p>
+          <details class="post__more">
+            <summary>Read the story <i aria-hidden="true">+</i></summary>
+            <div class="post__body">
+            <p>We are proud to welcome a new group of local businesses as Diamond Elite sponsors for the Spring 2027 season. Their support helps keep registration affordable, funds new equipment and covers scholarships for families who need them.</p>
+            <p>Look for our sponsors on team banners, on the sideline and on game-day announcements all season. When you are out and about, please say thanks and show them some local love.</p>
+            <p>Interested in joining them? See our sponsor story below or reach out through the contact details in the footer.</p>
+            </div>
+          </details>
+        </div>
+      </article>
+      <article class="post" data-cat="recaps" data-accent="lime">
+        <div class="post__art" aria-hidden="true"><img src="assets/favicon.svg" alt=""></div>
+        <div class="post__main">
+          <div class="post__meta"><span class="post__tag">Game Recap</span><time>Oct 24, 2026</time><span>2 min read</span></div>
+          <h3 class="post__title">8U and 10U Take Home the Brownson House Titles</h3>
+          <p class="post__excerpt">Two divisions, two championship trophies, one very loud sideline.</p>
+          <details class="post__more">
+            <summary>Read the story <i aria-hidden="true">+</i></summary>
+            <div class="post__body">
+            <p>Both our 8U and 10U squads walked away from the Brownson House tournament as champions. Across the bracket they showed what Diamond Elite football is about: quick hands, big hearts and teammates who lift each other up.</p>
+            <p>It was a proud day for the whole club, and a reminder that every rep at practice shows up on game day. Congratulations to every athlete and coach in both divisions.</p>
+            <p>Full details on our 2026 awards and team honors are on the Awards page.</p>
+            </div>
+          </details>
+        </div>
+      </article>
+      <article class="post" data-cat="community" data-accent="fire">
+        <div class="post__art" aria-hidden="true"><img src="assets/favicon.svg" alt=""></div>
+        <div class="post__main">
+          <div class="post__meta"><span class="post__tag">Community</span><time>Oct 10, 2026</time><span>1 min read</span></div>
+          <h3 class="post__title">Free Youth Flag Football Clinic Coming This Spring</h3>
+          <p class="post__excerpt">New to the game? Come try it, no sign-up fee and no experience needed.</p>
+          <details class="post__more">
+            <summary>Read the story <i aria-hidden="true">+</i></summary>
+            <div class="post__body">
+            <p>Diamond Elite is planning a free community clinic ahead of the Spring 2027 season, open to any kid curious about flag football. Our coaches will walk through the basics: how to pull a flag, run a route and play as a team.</p>
+            <p>Every participant goes home with a flag belt to keep. The date and location are still to be announced, so watch this page for details.</p>
+            <p>Know a family who would love to try it? Pass the word along.</p>
+            </div>
+          </details>
+        </div>
+      </article>
+      <article class="post" data-cat="sponsors" data-accent="violet">
+        <div class="post__art" aria-hidden="true"><img src="assets/favicon.svg" alt=""></div>
+        <div class="post__main">
+          <div class="post__meta"><span class="post__tag">Sponsors</span><time>Sep 26, 2026</time><span>1 min read</span></div>
+          <h3 class="post__title">Become a Diamond Elite Sponsor</h3>
+          <p class="post__excerpt">Put your business in front of the families who fill our sidelines every Saturday.</p>
+          <details class="post__more">
+            <summary>Read the story <i aria-hidden="true">+</i></summary>
+            <div class="post__body">
+            <p>Sponsoring Diamond Elite is a chance to show up for local kids and be seen by the families who fill our sidelines every Saturday. Sponsorships fund equipment, field time and scholarships so every child who wants to play can play.</p>
+            <p>Packages are flexible, from a banner at our home field to a spot on the team jersey. Reach out through the contact details in the footer and we will find the right fit for your business.</p>
+            </div>
+          </details>
+        </div>
+      </article>
+      <!-- /LOOP -->
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__big" data-footer-big>
+      <span>We got</span>
+      <span class="o">next.</span>
+    </div>
+    <div class="footer__grid">
+      <div>
+        <img class="footer__icon" src="assets/DianmondElite_Icon.svg" alt="Diamond Elite">
+        <h4>Home field</h4>
+        <p>Riverside Sports Complex<br>1200 Marigold Way, Fields 3 &amp; 4</p>
+      </div>
+      <div>
+        <h4>Say hello</h4>
+        <p><a href="#" data-cursor>hello@diamondelite.example</a><br><a href="#" data-cursor>(555) 014-2027</a></p>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <p><a href="#" data-cursor>Instagram</a> · <a href="#" data-cursor>TikTok</a> · <a href="#" data-cursor>YouTube</a></p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <p><a href="index.html#about" data-cursor>Club</a> · <a href="index.html#programs" data-cursor>Programs</a> · <a href="schedule.html" data-cursor>Schedule</a> · <a href="roster.html" data-cursor>Roster</a> · <a href="awards.html" data-cursor>Awards</a> · <a href="news.html" data-cursor>News</a> · <a href="registration.html" data-cursor>Register</a></p>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <span>© 2027 Diamond Elite Youth Flag Football. A fictional club.</span>
+      <a href="#top" data-cursor>Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+<script src="js/gsap-fallback.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

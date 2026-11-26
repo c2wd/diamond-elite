@@ -246,6 +246,37 @@
     addEventListener('hashchange', () => { show(fromHash()); animate(); });
   }
 
+  /* ---------------- NEWS PAGE: CATEGORY FILTER ---------------- */
+  const posts = $$('.post');
+  if (posts.length) {
+    const chips = $$('#newsFilters .chip'), countEl = $('#ncount');
+    const valid = f => chips.some(c => c.dataset.filter === f);
+    const fromHash = () => { const h = location.hash.slice(1).toLowerCase(); return valid(h) ? h : 'all'; };
+    const show = f => {
+      posts.forEach(p => { p.hidden = !(f === 'all' || p.dataset.cat === f); });
+      // the first visible story is the large featured one
+      const vis = posts.filter(p => !p.hidden);
+      posts.forEach(p => p.classList.toggle('post--feature', p === vis[0]));
+      chips.forEach(c => { const on = c.dataset.filter === f; c.classList.toggle('is-on', on); c.setAttribute('aria-pressed', on); });
+      const label = f === 'all' ? 'all news' : $(`#newsFilters .chip[data-filter="${f}"]`).textContent;
+      countEl.textContent = `Showing ${vis.length} ${vis.length === 1 ? 'story' : 'stories'} \u00b7 ${label}`;
+    };
+    const animate = () => gsap.fromTo($$('.post:not([hidden])'), { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: .7, ease: 'power3.out', stagger: .06, overwrite: true });
+    show(fromHash());
+    gsap.set(posts, { opacity: 0 });
+    ScrollTrigger.create({ trigger: '#posts', start: 'top 90%', once: true, onEnter: animate });
+    chips.forEach(chip => chip.addEventListener('click', () => {
+      const f = chip.dataset.filter;
+      show(f);
+      history.replaceState(null, '', f === 'all' ? location.pathname + location.search : '#' + f);
+      animate();
+      ScrollTrigger.refresh();
+    }));
+    addEventListener('hashchange', () => { show(fromHash()); animate(); });
+    // opening / closing a story changes the page height
+    $$('.post__more').forEach(d => d.addEventListener('toggle', () => ScrollTrigger.refresh()));
+  }
+
   /* ---------------- REGISTRATION ---------------- */
   const form = $('#regForm');
   if (form) {
