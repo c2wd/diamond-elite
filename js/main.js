@@ -277,6 +277,32 @@
     $$('.post__more').forEach(d => d.addEventListener('toggle', () => ScrollTrigger.refresh()));
   }
 
+  /* ---------------- CONTACT PAGE: FORM + FAQ ---------------- */
+  const cForm = $('#contactForm');
+  if (cForm) {
+    const cErr = $('#cErr'), cOk = $('#cOk'), req = $$('input[required], textarea[required]', cForm);
+    req.forEach(f => f.addEventListener('input', () => f.classList.remove('bad')));
+    cForm.addEventListener('submit', e => {
+      e.preventDefault();
+      cOk.hidden = true;
+      const bad = req.filter(f => { const ok = f.checkValidity() && f.value.trim(); f.classList.toggle('bad', !ok); return !ok; });
+      if (bad.length) {
+        cErr.textContent = 'A few fields need your attention \u2014 highlighted above.';
+        bad[0].focus();
+        gsap.fromTo(cForm, { x: -8 }, { x: 0, duration: .6, ease: 'elastic.out(1,.3)' });
+        return;
+      }
+      cErr.textContent = '';
+      // no backend yet: open the visitor's email app with the message ready to send
+      const name = $('#cName').value.trim(), email = $('#cEmail').value.trim(), msg = $('#cMsg').value.trim();
+      const subject = encodeURIComponent('[Website] ' + $('#cTopic').value);
+      const body = encodeURIComponent(`${msg}\n\n\u2014 ${name}\n${email}`);
+      location.href = `mailto:diamondelite2026@gmail.com?subject=${subject}&body=${body}`;
+      cOk.hidden = false;
+    });
+  }
+  $$('.faq').forEach(d => d.addEventListener('toggle', () => ScrollTrigger.refresh()));
+
   /* ---------------- REGISTRATION ---------------- */
   const form = $('#regForm');
   if (form) {
