@@ -326,6 +326,36 @@ em{font-style:normal}
 .award--mvp .award__title,.award--champ .award__title{color:rgba(7,8,13,.75)}
 .award--mvp:hover,.award--champ:hover{border-color:var(--paper)}
 
+/* ---------- news page ---------- */
+.newspage{padding-block:0 clamp(80px,12vw,160px)}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding-top:24px;align-items:start}
+.post{--c:var(--lime);position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:26px;background:var(--ink2);transition:translate .6s var(--ease),border-color .4s}
+.post[data-accent=violet]{--c:var(--ice)}
+.post[data-accent=fire]{--c:var(--fire)}
+.post[hidden]{display:none}
+.post:hover{translate:0 -6px;border-color:var(--c)}
+.post__art{position:relative;display:grid;place-items:center;height:150px;overflow:hidden;background:radial-gradient(120% 120% at 80% 0%,color-mix(in srgb,var(--c) 45%,transparent),transparent 65%),linear-gradient(160deg,var(--ink3),var(--ink2))}
+.post__art::after{content:"";position:absolute;width:150%;aspect-ratio:1;right:-55%;top:-30%;border:1px solid color-mix(in srgb,var(--c) 45%,transparent);transform:rotate(45deg) scale(.7)}
+.post__art img{position:relative;z-index:1;height:54px;width:auto;opacity:.9}
+.post__main{padding:clamp(20px,2.4vw,30px);display:flex;flex-direction:column;gap:14px}
+.post__meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.post__tag{background:var(--c);color:var(--ink);padding:5px 12px;border-radius:99px;font-weight:700;letter-spacing:.16em}
+.post__title{font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.95;font-size:clamp(1.8rem,2.4vw,2.4rem);text-wrap:balance}
+.post__excerpt{color:var(--mute);font-size:1rem}
+.post__more summary{display:inline-flex;align-items:center;gap:10px;cursor:pointer;list-style:none;color:var(--c);font-weight:600;font-size:.92rem;letter-spacing:.04em}
+.post__more summary::-webkit-details-marker{display:none}
+.post__more summary i{font-style:normal;display:grid;place-items:center;width:26px;height:26px;border:1px solid currentColor;border-radius:50%;transition:transform .4s var(--ease)}
+.post__more[open] summary i{transform:rotate(45deg)}
+.post__more summary:focus-visible{outline:2px solid var(--ice);outline-offset:4px;border-radius:6px}
+.post__body{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);display:grid;gap:12px}
+.post__body p{color:var(--paper);opacity:.85;font-size:1rem;max-width:62ch}
+.post--feature{grid-column:1/-1;flex-direction:row}
+.post--feature .post__art{flex:0 0 clamp(220px,28%,360px);height:auto;min-height:100%}
+.post--feature .post__art img{height:88px}
+.post--feature .post__main{flex:1;padding:clamp(24px,3.4vw,48px)}
+.post--feature .post__title{font-size:clamp(2.4rem,4.4vw,4.4rem)}
+.post--feature .post__excerpt{font-size:clamp(1.05rem,1.4vw,1.3rem);max-width:50ch}
+
 /* register */
 .register{background:linear-gradient(180deg,rgba(7,8,13,.5),rgba(7,8,13,.9) 25%)}
 .register .display{margin-bottom:clamp(40px,6vw,80px);max-width:14ch}
@@ -400,6 +430,8 @@ em{font-style:normal}
 
 /* responsive */
 @media (max-width:1100px){
+  .nav__links{gap:clamp(14px,1.9vw,20px);letter-spacing:.1em}
+  .posts{grid-template-columns:repeat(2,1fr)}
   .divs__list{grid-template-columns:repeat(3,1fr)}
   .game{grid-template-columns:110px 1fr 110px 90px 32px}
   .game__meta.fld{display:none}
@@ -407,6 +439,8 @@ em{font-style:normal}
   .summary{position:static;max-width:520px}
 }
 @media (max-width:900px){
+  .post--feature{flex-direction:column}
+  .post--feature .post__art{flex:none;height:150px;min-height:0}
   .schedcta__grid{grid-template-columns:1fr}
   .regcta__grid{grid-template-columns:1fr}
   .programs__grid,.rteaser__grid,.voices__grid{grid-template-columns:1fr}
@@ -426,6 +460,7 @@ em{font-style:normal}
   .footer__grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:560px){
+  .posts{grid-template-columns:1fr}
   .divisions .div__card{padding:16px}
   .divisions .div__card b{font-size:1.8rem}
   .divs__list{grid-template-columns:repeat(2,1fr)}
