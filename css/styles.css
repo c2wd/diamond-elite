@@ -520,7 +520,7 @@ em{font-style:normal}
 .no-gsap .cursor{display:none!important}
 .no-gsap body{cursor:auto!important}
 .no-gsap a,.no-gsap button,.no-gsap label{cursor:pointer!important}
-.no-gsap .marquee__track{animation:marquee 22s linear infinite}
+.no-gsap .marquee__track{animation:marquee 44s linear infinite}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
 @media (prefers-reduced-motion:reduce){
