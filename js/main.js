@@ -359,7 +359,7 @@
 
   function confetti() {
     if (RM) return;
-    const cols = ['#00c3ff', '#9b7bff', '#ff6b2c', '#f3f1ea'];
+    const cols = ['#0089fb', '#9b7bff', '#ff6b2c', '#f3f1ea'];
     for (let i = 0; i < 70; i++) {
       const b = document.createElement('i'); b.className = 'bit';
       b.style.background = cols[i % 4]; document.body.appendChild(b);
